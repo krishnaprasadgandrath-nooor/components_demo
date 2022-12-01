@@ -44,6 +44,7 @@ app.*.map.json
 /android/app/release
 
 #Platform Spcific code ignored
+###To Test Whether this git is working or not
 /android
 /ios
 /linux
