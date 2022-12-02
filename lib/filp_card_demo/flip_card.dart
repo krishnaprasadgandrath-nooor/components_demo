@@ -1,8 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class FlipCard extends StatefulWidget {
   final Widget front;
@@ -22,7 +20,6 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
       vsync: this,
       value: 0.0,
       animationBehavior: AnimationBehavior.preserve);
-  
 
   @override
   void initState() {

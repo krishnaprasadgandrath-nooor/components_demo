@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:convert';
+
 import 'dart:io';
 
 import 'package:components_demo/utils/default_appbar.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
-import 'package:validators/validators.dart';
 
 const List<String> staticImages = [
   'https://cdn.pixabay.com/photo/2013/02/01/18/14/url-77169__340.jpg',

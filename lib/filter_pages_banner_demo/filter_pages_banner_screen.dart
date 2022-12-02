@@ -1,8 +1,6 @@
 import 'package:components_demo/filter_pages_banner_demo/filter_pages_banner.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class FilterPagesBannerScreen extends StatefulWidget {
   const FilterPagesBannerScreen({super.key});

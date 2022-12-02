@@ -1,4 +1,4 @@
-import 'package:components_demo/filp_card_demo/flip_card.dart';
+import 'dart:math' as math;
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,7 @@ class FlipCardScreen extends StatefulWidget {
 }
 
 class _FlipCardScreenState extends State<FlipCardScreen> {
+  double _sliderValue = 0.5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,17 +21,28 @@ class _FlipCardScreenState extends State<FlipCardScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(3),
-            child: FlipCard(
-              front: Center(
-                child: Card(
-                    child: Container(
-                        height: 200, width: 200, color: Colors.red, child: const Center(child: Text("Front")))),
+            child: Transform(
+              transform: Matrix4.rotationY(_sliderValue * math.pi / 180),
+              child: Container(
+                margin: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(20.0),
+                color: Colors.red,
+                child: Center(
+                  child: Text("Hello"),
+                ),
               ),
-              back: Center(
-                child: Card(
-                    child: Container(
-                        height: 200, width: 200, color: Colors.green, child: const Center(child: Text("Back")))),
-              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Slider(
+              value: _sliderValue,
+              min: 0,
+              max: 1,
+              divisions: 10,
+              onChanged: (value) => setState(() {
+                _sliderValue = value;
+              }),
             ),
           )
         ],

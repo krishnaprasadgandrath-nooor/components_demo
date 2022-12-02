@@ -1,5 +1,5 @@
 import 'package:components_demo/demo_home.dart';
-import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {

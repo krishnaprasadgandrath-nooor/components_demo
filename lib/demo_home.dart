@@ -5,8 +5,8 @@ import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart';
 import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
 import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
-import 'package:components_demo/filter_pages_banner_demo/filter_pages_banner.dart';
 import 'package:components_demo/rotaing_progress/rotating_progrss_screen.dart';
+import 'package:components_demo/sharingan_demo/sharingan_home.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +22,7 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Sharingan Demo": const SharinganHome(),
     "Expandanble Card": const ExpandableCardScreen(),
     "Dynamic Grid": const DynamicGridScreen(),
     "Filter Pages Banner": const FilterPagesBannerScreen(),
