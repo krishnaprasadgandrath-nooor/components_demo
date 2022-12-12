@@ -5,6 +5,7 @@ import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart';
 import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
 import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
+import 'package:components_demo/interfaces_demo/vehicles_demo_screen.dart';
 import 'package:components_demo/rotaing_progress/rotating_progrss_screen.dart';
 import 'package:components_demo/rotating_card_demo/rotating_card_screen.dart';
 import 'package:components_demo/sharingan_demo/sharingan_home.dart';
@@ -30,7 +31,8 @@ class _ComponentsHomeState extends State<ComponentsHome> {
     "Filter Element Tile": const FilterElementScreen(),
     "Flip Card Demo": const FlipCardScreen(),
     "Rotating Progress Demo": const RotatingProgressScreen(),
-    "Rotating Card Demo ": const RotatingCardScreen()
+    "Rotating Card Demo ": const RotatingCardScreen(),
+    "Interfaces Demo ": const VehiclesDemoScreen()
   };
   @override
   Widget build(BuildContext context) {
