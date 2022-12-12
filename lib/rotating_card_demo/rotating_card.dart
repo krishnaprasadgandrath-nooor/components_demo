@@ -14,6 +14,8 @@ class _RotatingCardState extends State<RotatingCard> {
   Offset center = Offset.zero;
   Offset downPoint = Offset.zero;
   double? safeAngle;
+  double changingAngle = 0;
+  bool calculateObstuse = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +23,7 @@ class _RotatingCardState extends State<RotatingCard> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Transform.rotate(
-            angle: -(_angle % 360) * (math.pi / 180),
+            angle: -(_angle) * (math.pi / 180),
             child: Column(
               children: [
                 Container(height: 200, width: 200, color: Colors.orange),
@@ -41,14 +43,16 @@ class _RotatingCardState extends State<RotatingCard> {
                     },
                     onPanUpdate: (details) {
                       Offset updateOffset = details.globalPosition;
-                      double newAngle = findAngle(center: center, downPoint: downPoint, dragPoint: updateOffset);
-                      _angle += newAngle / 45;
+                      changingAngle = findAngle(center: center, downPoint: downPoint, dragPoint: updateOffset);
+                      _angle = safeAngle! + changingAngle;
+                      _angle = _angle % 360;
                       setState(() {});
                     },
-                    onPanEnd: (details) {},
-                    child: /*Transform.rotate(
-                        angle: -(_angle % 360) * (math.pi / 180), child:*/
-                        const Icon(Icons.crop_rotate_sharp)) //)
+                    onPanEnd: (details) {
+                      safeAngle = null;
+                      setState(() {});
+                    },
+                    child: Transform.rotate(angle: (_angle) * (math.pi / 180), child: Text("${_angle.floor()} °")))
               ],
             )),
         // Slider(
