@@ -5,6 +5,7 @@ import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart';
 import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
 import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
+import 'package:components_demo/index_page_list_tile_demo/index_list_tile_screen.dart';
 import 'package:components_demo/interfaces_demo/vehicles_demo_screen.dart';
 import 'package:components_demo/rotaing_progress/rotating_progrss_screen.dart';
 import 'package:components_demo/rotating_card_demo/rotating_card_screen.dart';
@@ -13,6 +14,7 @@ import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
 import 'filter_pages_banner_demo/filter_pages_banner_screen.dart';
+import 'selective_provider/custom_provider_demo.dart';
 
 class ComponentsHome extends StatefulWidget {
   const ComponentsHome({super.key});
@@ -32,7 +34,9 @@ class _ComponentsHomeState extends State<ComponentsHome> {
     "Flip Card Demo": const FlipCardScreen(),
     "Rotating Progress Demo": const RotatingProgressScreen(),
     "Rotating Card Demo ": const RotatingCardScreen(),
-    "Interfaces Demo ": const VehiclesDemoScreen()
+    "Interfaces Demo ": const VehiclesDemoScreen(),
+    "Index Tile Demo": const IndexTileDemo(),
+    "Custom Provider DemoScreen": const CustomProviderDemoScreen()
   };
   @override
   Widget build(BuildContext context) {

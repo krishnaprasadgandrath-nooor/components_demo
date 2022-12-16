@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:components_demo/interfaces_demo/vehicle_inheritance_demo.dart';
+import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,6 +26,7 @@ class _VehiclesDemoScreenState extends State<VehiclesDemoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: DefaultAppBar.appBar(context, "InterFaces Demo"),
       body: RawKeyboardListener(
         focusNode: stageFocusNode,
         autofocus: true,
