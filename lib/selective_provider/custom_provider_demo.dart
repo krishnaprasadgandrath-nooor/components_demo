@@ -29,38 +29,47 @@ class CustomProviderDemoScreen extends ConsumerWidget {
     ;
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const ColorWidget(),
           const TitleWidget(),
           const CountWidget(),
+          const ListenerWidget(),
           Wrap(
             direction: Axis.horizontal,
+            alignment: WrapAlignment.start,
+            runAlignment: WrapAlignment.start,
+            spacing: 10.0,
+            runSpacing: 10.0,
             children: {
-              "Change Color": changeColor,
-              "Change Title": changeTitle,
-              "Change Int": changeInt,
-              "Change Color and title": () {
+              "Color": changeColor,
+              "Title": changeTitle,
+              "Int": changeInt,
+              "Color and title": () {
                 changeColor();
                 changeTitle();
               },
-              "Change Color and Int": () {
+              "Color and Int": () {
                 changeColor();
                 changeInt();
               },
-              "Change Title and Int": () {
+              "Title and Int": () {
                 changeTitle();
                 changeInt();
               },
-              "Change All": () {
+              "All": () {
                 changeColor();
                 changeTitle();
                 changeInt();
               }
             }
                 .entries
-                .map((e) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
+                .map((e) => Container(
+                      // color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
+                      ),
                     ))
                 .toList(),
           )
@@ -145,5 +154,34 @@ class _CountWidgetState extends ConsumerState<CountWidget> {
         ),
       ),
     );
+  }
+}
+
+class ListenerWidget extends ConsumerStatefulWidget {
+  const ListenerWidget({super.key});
+
+  @override
+  ConsumerState<ListenerWidget> createState() => _ListenerWidgetState();
+}
+
+class _ListenerWidgetState extends ConsumerState<ListenerWidget> {
+  Color _color = Colors.red;
+  @override
+  void initState() {
+    ref.read(customoProvider).addListener(_listerToPro);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(color: Colors.accents[Random().nextInt(Colors.accents.length)], height: 20);
+  }
+
+  void _listerToPro() {
+    // Color color = ref.read(customoProvider).color;
+    // if (_color != color) {
+    //   _color = color;
+    setState(() {});
+    // }
   }
 }
