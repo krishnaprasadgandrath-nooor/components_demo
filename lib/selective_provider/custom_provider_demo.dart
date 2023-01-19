@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:components_demo/selective_provider/custom_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomProviderDemoScreen extends ConsumerWidget {
@@ -15,18 +13,14 @@ class CustomProviderDemoScreen extends ConsumerWidget {
       ref.read(customoProvider).updateData(newTitle: "Title${Random().nextInt(1000)}");
     }
 
-    ;
-
     void changeInt() {
       ref.read(customoProvider).updateData(newRandomInt: Random().nextInt(2000));
     }
 
-    ;
     void changeColor() {
       ref.read(customoProvider).updateData(newColor: Colors.accents[Random().nextInt(Colors.accents.length)]);
     }
 
-    ;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
