@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:components_demo/selective_provider/custom_provider.dart';
+import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,52 +23,55 @@ class CustomProviderDemoScreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ColorWidget(),
-          const TitleWidget(),
-          const CountWidget(),
-          const ListenerWidget(),
-          Wrap(
-            direction: Axis.horizontal,
-            alignment: WrapAlignment.start,
-            runAlignment: WrapAlignment.start,
-            spacing: 10.0,
-            runSpacing: 10.0,
-            children: {
-              "Color": changeColor,
-              "Title": changeTitle,
-              "Int": changeInt,
-              "Color and title": () {
-                changeColor();
-                changeTitle();
-              },
-              "Color and Int": () {
-                changeColor();
-                changeInt();
-              },
-              "Title and Int": () {
-                changeTitle();
-                changeInt();
-              },
-              "All": () {
-                changeColor();
-                changeTitle();
-                changeInt();
+      appBar: DefaultAppBar.appBar(context, "Custom PRovider Demo"),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ColorWidget(),
+            const TitleWidget(),
+            const CountWidget(),
+            const ListenerWidget(),
+            Wrap(
+              direction: Axis.horizontal,
+              alignment: WrapAlignment.start,
+              runAlignment: WrapAlignment.start,
+              spacing: 10.0,
+              runSpacing: 10.0,
+              children: {
+                "Color": changeColor,
+                "Title": changeTitle,
+                "Int": changeInt,
+                "Color and title": () {
+                  changeColor();
+                  changeTitle();
+                },
+                "Color and Int": () {
+                  changeColor();
+                  changeInt();
+                },
+                "Title and Int": () {
+                  changeTitle();
+                  changeInt();
+                },
+                "All": () {
+                  changeColor();
+                  changeTitle();
+                  changeInt();
+                }
               }
-            }
-                .entries
-                .map((e) => Container(
-                      // color: Colors.red,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
-                      ),
-                    ))
-                .toList(),
-          )
-        ],
+                  .entries
+                  .map((e) => Container(
+                        // color: Colors.red,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
+                        ),
+                      ))
+                  .toList(),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -175,7 +179,7 @@ class _ListenerWidgetState extends ConsumerState<ListenerWidget> {
     // Color color = ref.read(customoProvider).color;
     // if (_color != color) {
     //   _color = color;
-    setState(() {});
+    if (mounted) setState(() {});
     // }
   }
 }

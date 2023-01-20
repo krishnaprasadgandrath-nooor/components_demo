@@ -23,11 +23,18 @@ class IsolateBytesDemoScreen extends StatefulWidget {
 class _IsolateBytesDemoScreenState extends State<IsolateBytesDemoScreen> {
   bool _isPdfLoaded = false;
   Uint8List? pdfbytes;
+  Isolate? _isolate;
 
   @override
   void initState() {
     _startFetching();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _isolate?.kill();
+    super.dispose();
   }
 
   @override
@@ -46,13 +53,13 @@ class _IsolateBytesDemoScreenState extends State<IsolateBytesDemoScreen> {
   Future<void> _startFetching() async {
     ReceivePort listenPort = ReceivePort();
     String pdfUrl = "https://www.africau.edu/images/default/sample.pdf";
-    final isolate = await Isolate.spawn(fetchBytes, [listenPort.sendPort, pdfUrl]);
+    _isolate = await Isolate.spawn(fetchBytes, [listenPort.sendPort, pdfUrl]);
     listenPort.listen((message) {
       pdfbytes = message as Uint8List;
       _isPdfLoaded = true;
       setState(() {});
       listenPort.close();
-      isolate.kill();
+      _isolate?.kill();
     });
   }
 }

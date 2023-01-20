@@ -1,3 +1,4 @@
+import 'package:components_demo/utils/default_appbar.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -20,7 +21,9 @@ class _DeviceInfoWebDemoScreenState extends State<DeviceInfoWebDemoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Scaffold(
+      appBar: DefaultAppBar.appBar(context, "DEvice Info Demo"),
+    );
   }
 
   Future<void> getDeviceInfo() async {

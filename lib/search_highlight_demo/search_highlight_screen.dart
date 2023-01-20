@@ -1,4 +1,5 @@
 import 'package:components_demo/search_highlight_demo/searchable_text_field.dart';
+import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
 class SearchHighlightScreen extends StatefulWidget {
@@ -33,6 +34,7 @@ class _SearchHighlightScreenState extends State<SearchHighlightScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: DefaultAppBar.appBar(context, "Searcxh Highlight Demo"),
       body: Column(
         children: [
           SizedBox(

@@ -1,4 +1,5 @@
 import 'package:components_demo/state_notifier_demo/user_list_notifier.dart';
+import 'package:components_demo/utils/default_appbar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,6 +13,7 @@ class StateNotiferDemoScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     List<User> userList = ref.watch(usersProivder);
     return Scaffold(
+      appBar: DefaultAppBar.appBar(context, "State Notifier Demo"),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showUserAddDialog(context, ref),
         child: const Icon(Icons.add),

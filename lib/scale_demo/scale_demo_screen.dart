@@ -1,3 +1,4 @@
+import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
 class ScaleDemoScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _ScaleDemoScreenState extends State<ScaleDemoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: DefaultAppBar.appBar(context, "Pinch Scaling Demo"),
       body: Center(
         child: Container(
           height: 300,
