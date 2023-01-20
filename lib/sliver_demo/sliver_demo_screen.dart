@@ -101,6 +101,43 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
                   ),
                 ),
               ),
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                  child: Center(
+                    child: Text("Selected Value are : "),
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minHeight: 0, maxHeight: 200.0),
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => Container(
+                            color: Colors.red,
+                            margin: const EdgeInsets.all(3.0),
+                            child: Center(
+                              heightFactor: 1.5,
+                              child: Text(
+                                "$index",
+                                // "${selectedValues.elementAt((index))}",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                      itemCount: selectedValues.length * 5),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+                  child: Divider(
+                    thickness: 2.0,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
               SliverGrid(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 150.0, mainAxisExtent: 150.0, mainAxisSpacing: 10.0, crossAxisSpacing: 10.0),
