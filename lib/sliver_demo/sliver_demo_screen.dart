@@ -1,8 +1,5 @@
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SliverDemoScreen extends StatefulWidget {
   const SliverDemoScreen({super.key});
@@ -13,6 +10,7 @@ class SliverDemoScreen extends StatefulWidget {
 
 class _SliverDemoScreenState extends State<SliverDemoScreen> {
   Set<int> selectedValues = {};
+  Set<int> filteredValues = {};
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,11 +18,14 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
       body: Column(
         children: [
           const ColoredBox(
-            color: Colors.red,
+            color: Colors.grey,
             child: SizedBox(
                 height: 50,
                 child: Center(
-                  child: Text("Heading"),
+                  child: Text(
+                    "Heading",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 )),
           ),
           Expanded(
@@ -38,11 +39,13 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
                   snap: true,
                   actions: {
                     "Select All": () {
-                      selectedValues.addAll([0, 1, 2, 3, 4, 5, 6]);
+                      selectedValues.addAll([1, 2, 3, 4, 5, 6]);
+                      updateFilteredValues();
                       setState(() {});
                     },
                     "Reset": () {
                       selectedValues.clear();
+                      updateFilteredValues();
                       setState(() {});
                     }
                   }
@@ -70,46 +73,94 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
                                 crossAxisSpacing: 10.0,
                                 mainAxisSpacing: 10.0,
                                 mainAxisExtent: 30.0),
-                            itemBuilder: (context, index) => Row(
-                                  children: [
-                                    Checkbox(
-                                      value: selectedValues.contains(index),
-                                      onChanged: (value) {
-                                        selectedValues.contains(index)
-                                            ? selectedValues.remove(index)
-                                            : selectedValues.add(index);
-                                        setState(() {});
-                                      },
-                                    ),
-                                    Text(index.toString())
-                                  ],
-                                )),
+                            itemBuilder: (context, index) {
+                              int checkValue = index + 1;
+                              return Row(
+                                children: [
+                                  Checkbox(
+                                    value: selectedValues.contains(checkValue),
+                                    onChanged: (value) {
+                                      selectedValues.contains(checkValue)
+                                          ? selectedValues.remove(checkValue)
+                                          : selectedValues.add(checkValue);
+                                      updateFilteredValues();
+                                      setState(() {});
+                                    },
+                                  ),
+                                  Text(checkValue.toString())
+                                ],
+                              );
+                            }),
                       ))),
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-                  child: Divider(),
+                  child: Divider(
+                    thickness: 2.0,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
               SliverGrid(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 150.0, mainAxisExtent: 150.0, mainAxisSpacing: 10.0, crossAxisSpacing: 10.0),
                 delegate: SliverChildBuilderDelegate(
-                    childCount: 100,
+                    childCount: filteredValues.length,
                     (context, index) => Container(
                           color: Colors.red,
                           child: Center(
                             child: Text(
-                              "$index",
-                              style: TextStyle(color: Colors.white),
+                              "${filteredValues.elementAt(index)}",
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                         )),
               )
             ],
-          ))
+          )),
+          Container(
+            decoration: BoxDecoration(color: Colors.white, boxShadow: [
+              BoxShadow(
+                  blurRadius: 6.0,
+                  spreadRadius: 15.0,
+                  color: const Color(0xff01FE0B).withAlpha(150),
+                  offset: const Offset(0, 0),
+                  blurStyle: BlurStyle.normal)
+            ]),
+            child: SizedBox(
+              height: 100.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: ["Mail", "Export", "Filter Mode"]
+                    .map((e) => Container(
+                          child: Center(
+                            heightFactor: 1.2,
+                            widthFactor: 2,
+                            child: Text(e),
+                          ),
+                        ))
+                    .toList(),
+              ),
+            ),
+          )
         ],
       ),
     );
+  }
+
+  Future<void> updateFilteredValues() async {
+    filteredValues.clear();
+    for (var i = 1; i <= 1000; i++) {
+      bool failed = false;
+      for (var element in selectedValues) {
+        if (i % element != 0) {
+          failed = true;
+          break;
+        }
+      }
+      if (failed) continue;
+      filteredValues.add(i);
+      setState(() {});
+    }
   }
 }

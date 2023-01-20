@@ -38,6 +38,12 @@ class _SharinganHomeState extends State<SharinganHome> with SingleTickerProvider
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar.appBar(context, "Sharingan Demo"),
