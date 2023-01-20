@@ -15,6 +15,7 @@ import 'package:components_demo/rotating_card_demo/rotating_card_screen.dart';
 import 'package:components_demo/scale_demo/scale_demo_screen.dart';
 import 'package:components_demo/search_highlight_demo/search_highlight_screen.dart';
 import 'package:components_demo/sharingan_demo/sharingan_home.dart';
+import 'package:components_demo/sliver_demo/sliver_demo_screen.dart';
 import 'package:components_demo/state_notifier_demo/state_notifier_demo_screen.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,7 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Sliver List Demo": const SliverDemoScreen(),
     "Network Isolate Demo": const IsolateBytesDemoScreen(),
     "Isolate Demo": const IsolateDemoScreen(),
     "Sharingan Demo": const SharinganHome(),

@@ -1,4 +1,5 @@
 import 'package:components_demo/demo_home.dart';
+import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return ProviderScope(
         child: MaterialApp(
       title: 'Flutter Demo',
+      scrollBehavior: const ScrollBehavior().copyWith(dragDevices: {PointerDeviceKind.mouse}),
       theme: ThemeData(
         // This is the theme of your application.
         //
