@@ -7,6 +7,8 @@ import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart'
 import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
 import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
 import 'package:components_demo/index_page_list_tile_demo/index_list_tile_screen.dart';
+import 'package:components_demo/inherited_widget_demo/inherited_widget_base_screen.dart';
+import 'package:components_demo/inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
 import 'package:components_demo/interfaces_demo/vehicles_demo_screen.dart';
 import 'package:components_demo/isolate_bytes_demo/isolate_network_call_demo_screen.dart';
 import 'package:components_demo/isolates_demo/isolates_demo_screen.dart';
@@ -33,6 +35,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Iherited Widget Variant Demo": const InheritedWidgetVariantScreen(),
+    "Iherited Widget Demo": const InheritedWidgetScreen(),
     "Sliver List Demo": const SliverDemoScreen(),
     "Network Isolate Demo": const IsolateBytesDemoScreen(),
     "Isolate Demo": const IsolateDemoScreen(),
