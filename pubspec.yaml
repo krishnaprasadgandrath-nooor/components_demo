@@ -43,6 +43,9 @@ dependencies:
   http: ^0.13.5
   native_pdf_view: ^4.2.0
   intl: ^0.18.0
+  uuid: ^3.0.7
+  filepicker_windows: ^2.0.2
+  file_picker: ^5.0.1
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,7 @@ import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart';
 import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
 import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
+import 'package:components_demo/future_provider_demo/future_provider_demo.dart';
 import 'package:components_demo/index_page_list_tile_demo/index_list_tile_screen.dart';
 import 'package:components_demo/inherited_widget_demo/inherited_widget_base_screen.dart';
 import 'package:components_demo/inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
@@ -19,6 +20,7 @@ import 'package:components_demo/search_highlight_demo/search_highlight_screen.da
 import 'package:components_demo/sharingan_demo/sharingan_home.dart';
 import 'package:components_demo/sliver_demo/sliver_demo_screen.dart';
 import 'package:components_demo/state_notifier_demo/state_notifier_demo_screen.dart';
+import 'package:components_demo/stream_provider_demo/stream_provider_demo.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +37,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Stream Provider Demo": const StreamProviderScreen(),
+    "Future Provider Demo": const FutureProviderScreen(),
     "Iherited Widget Variant Demo": const InheritedWidgetVariantScreen(),
     "Iherited Widget Demo": const InheritedWidgetScreen(),
     "Sliver List Demo": const SliverDemoScreen(),
