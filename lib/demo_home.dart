@@ -1,5 +1,7 @@
 // demo_home.dart
 
+import 'package:components_demo/binary_tree_problems/btree_demo_screen.dart';
+import 'package:components_demo/binary_tree_problems/triangle_demo_screen.dart';
 import 'package:components_demo/device_info_web/device_info_web_demo_screen.dart';
 import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
 
@@ -37,6 +39,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "TRIANGLE ART DEMO": const TriangleArtScreen(),
+    "Tree Demo Screen": const TreeVisualizerScreen(),
     "Stream Provider Demo": const StreamProviderScreen(),
     "Future Provider Demo": const FutureProviderScreen(),
     "Iherited Widget Variant Demo": const InheritedWidgetVariantScreen(),
