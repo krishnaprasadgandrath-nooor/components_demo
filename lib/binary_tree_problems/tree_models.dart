@@ -2,6 +2,7 @@ import 'dart:math';
 
 abstract class Tree {
   final Node? root;
+
   Tree({
     this.root,
   });
@@ -22,13 +23,10 @@ class Node {
   Node? left;
   Node? right;
 
-  Node({
-    required this.value,
-    this.left,
-    this.right,
-  });
+  Node({required this.value, this.left, this.right, this.level = 0});
   int get height => left == null && right == null ? 0 : 1 + max(left?.height ?? 0, right?.height ?? 0);
 
+  int level;
   int get balanceFactor {
     int leftHeight = left == null ? 0 : (1 + left!.height);
     int rightHeight = right == null ? 0 : (1 + right!.height);

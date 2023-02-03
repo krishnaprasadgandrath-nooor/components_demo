@@ -1,4 +1,5 @@
 import 'package:components_demo/binary_tree_problems/tree_models.dart';
+import 'package:stack/stack.dart' as stack;
 
 class BTree extends Tree {
   @override
@@ -18,6 +19,22 @@ class BTree extends Tree {
 
   @override
   Iterable<int> get preOrderElements => root?.preOrderElements ?? [];
+
+  List<List> get depthList {
+    if (root == null) return [];
+    List<List> depthsList = [];
+    stack.Stack<Node?> nodeStack = stack.Stack();
+
+    return depthsList;
+  }
+
+  // processNodeDepthList(Node? node, stack.Stack stack, List list) {
+  //   list.add(node?.left);
+  //   list.add(node?.right);
+  //   stack.push(node?.left);
+  //   stack.push(node?.left);
+  //   stack.pop();
+  // }
 
   @override
   bool remove(int data) {
@@ -55,6 +72,7 @@ class BTree extends Tree {
         _insert(parent.right!, newNode);
       } else {
         parent.right = newNode;
+        newNode.level = parent.level + 1;
       }
     }
 
@@ -64,6 +82,7 @@ class BTree extends Tree {
         _insert(parent.left!, newNode);
       } else {
         parent.left = newNode;
+        newNode.level = parent.level + 1;
       }
     }
   }

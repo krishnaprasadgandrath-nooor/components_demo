@@ -46,6 +46,8 @@ dependencies:
   uuid: ^3.0.7
   filepicker_windows: ^2.0.2
   file_picker: ^5.0.1
+  stack: ^0.2.1
+  tuple: ^2.0.1
 
 dev_dependencies:
   flutter_test:
