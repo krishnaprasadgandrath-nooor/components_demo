@@ -1,10 +1,12 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:components_demo/binary_tree_problems/binary_tree.dart';
 import 'package:components_demo/binary_tree_problems/tree_models.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/services.dart';
+import 'dart:math' as math;
 
 const double nodeSize = 40;
 
@@ -29,6 +31,8 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
     super.initState();
   }
 
+  int get maxHorizontalNodes => math.pow(2, bTree.root?.height ?? 0).toInt();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,60 +40,71 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
         floatingActionButton: FloatingActionButton(onPressed: showInsertDialog),
         body: Padding(
           padding: const EdgeInsets.all(2.0),
-          child: InteractiveViewer(child: LayoutBuilder(
-            builder: (context, constraints) {
-              Size maxSize = constraints.biggest;
-              Offset topCenter = Offset(maxSize.width / 2, 0);
-              return SizedBox.fromSize(
-                size: maxSize,
-                child: CustomPaint(
-                  painter: TreeLinePainter(nodePosMap: nodePosMap),
-                  child: Stack(
-                    children: [
-                      if (bTree.root != null)
-                        NodeTile(
-                          position: Offset(topCenter.dx - nodeSize / 2, topCenter.dy),
-                          nodeSize: nodeSize,
-                          node: bTree.root!,
-                          addToPosMap: addToPosMap,
+          child: ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(dragDevices: {PointerDeviceKind.mouse}),
+            child: InteractiveViewer(
+                panEnabled: true,
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    Size maxSize = constraints.biggest;
+                    Offset topCenter = Offset(maxSize.width / 2, 0);
+                    return SizedBox.fromSize(
+                      size: maxSize,
+                      child: CustomPaint(
+                        painter: TreeLinePainter(nodePosMap: nodePosMap),
+                        child: Stack(
+                          children: [
+                            if (bTree.root != null)
+                              NodeTile(
+                                position: Offset(topCenter.dx - nodeSize / 2, topCenter.dy),
+                                nodeSize: nodeSize,
+                                node: bTree.root!,
+                                addToPosMap: addToPosMap,
+                              ),
+                            ...nodePosMap.entries
+                                .map(
+                                  (e) => e.key.left != null
+                                      ? NodeTile(
+                                          position: e.value +
+                                              Offset(
+                                                  -(maxSize.width / maxHorizontalNodes) *
+                                                      (bTree.root!.height - e.key.level),
+                                                  levelGap),
+                                          nodeSize: nodeSize,
+                                          node: e.key.left!,
+                                          addToPosMap: addToPosMap,
+                                        )
+                                      : const SizedBox(
+                                          height: nodeSize,
+                                          width: nodeSize,
+                                        ),
+                                )
+                                .toList(),
+                            ...nodePosMap.entries
+                                .map(
+                                  (e) => e.key.right != null
+                                      ? NodeTile(
+                                          position: e.value +
+                                              Offset(
+                                                  (maxSize.width / maxHorizontalNodes) *
+                                                      (bTree.root!.height - e.key.level),
+                                                  levelGap),
+                                          nodeSize: nodeSize,
+                                          node: e.key.right!,
+                                          addToPosMap: addToPosMap)
+                                      : const SizedBox(
+                                          height: nodeSize,
+                                          width: nodeSize,
+                                        ),
+                                )
+                                .toList(),
+                          ],
                         ),
-                      ...nodePosMap.entries
-                          .map(
-                            (e) => e.key.left != null
-                                ? NodeTile(
-                                    position:
-                                        e.value + Offset(-siblingGap * (bTree.root!.height - e.key.level), levelGap),
-                                    nodeSize: nodeSize,
-                                    node: e.key.left!,
-                                    addToPosMap: addToPosMap,
-                                  )
-                                : const SizedBox(
-                                    height: nodeSize,
-                                    width: nodeSize,
-                                  ),
-                          )
-                          .toList(),
-                      ...nodePosMap.entries
-                          .map(
-                            (e) => e.key.right != null
-                                ? NodeTile(
-                                    position:
-                                        e.value + Offset(siblingGap * (bTree.root!.height - e.key.level), levelGap),
-                                    nodeSize: nodeSize,
-                                    node: e.key.right!,
-                                    addToPosMap: addToPosMap)
-                                : const SizedBox(
-                                    height: nodeSize,
-                                    width: nodeSize,
-                                  ),
-                          )
-                          .toList(),
-                    ],
-                  ),
-                ),
-              );
-            },
-          )),
+                      ),
+                    );
+                  },
+                )),
+          ),
         ));
   }
 
@@ -97,7 +112,7 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
     if (nodePosMap[entry.key] == entry.value) return;
     nodePosMap[entry.key] = entry.value;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      setState(() {});
+      Future.delayed(const Duration(milliseconds: 500), () => setState(() {}));
     });
   }
 
@@ -132,28 +147,30 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
       context: context,
       builder: (context) {
         TextEditingController controller = TextEditingController();
-        return Card(
-            child: SizedBox(
-                height: 300,
-                width: 300,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: TextField(
-                        controller: controller,
-                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                        decoration: InputDecoration(border: OutlineInputBorder()),
+        return Center(
+          child: Card(
+              child: SizedBox(
+                  height: 120,
+                  width: 300,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(5.0),
+                        child: TextField(
+                          controller: controller,
+                          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                          decoration: InputDecoration(border: OutlineInputBorder()),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: ElevatedButton(
-                          onPressed: () => Navigator.pop(context, int.tryParse(controller.text)),
-                          child: const Text("Insert")),
-                    )
-                  ],
-                )));
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                            onPressed: () => Navigator.pop(context, int.tryParse(controller.text)),
+                            child: const Text("Insert")),
+                      )
+                    ],
+                  ))),
+        );
       },
     );
     if (value != null) bTree.insert(value);

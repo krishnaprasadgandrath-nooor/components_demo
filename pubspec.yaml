@@ -48,6 +48,7 @@ dependencies:
   file_picker: ^5.0.1
   stack: ^0.2.1
   tuple: ^2.0.1
+  audioplayers: ^3.0.1
 
 dev_dependencies:
   flutter_test:
