@@ -49,6 +49,7 @@ dependencies:
   stack: ^0.2.1
   tuple: ^2.0.1
   audioplayers: ^3.0.1
+  flutter_quill: ^6.4.4
 
 dev_dependencies:
   flutter_test:

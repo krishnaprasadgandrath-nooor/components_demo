@@ -1,31 +1,34 @@
 // demo_home.dart
 
-import 'package:components_demo/audio_player_demo/audio_player_demo.dart';
-import 'package:components_demo/binary_tree_problems/btree_demo_screen.dart';
-import 'package:components_demo/binary_tree_problems/triangle_demo_screen.dart';
-import 'package:components_demo/device_info_web/device_info_web_demo_screen.dart';
-import 'package:components_demo/dynamic_grid_demo/dynamic_grid_demo.dart';
-
-import 'package:components_demo/expandable_card_demo/expansion_card_screen.dart';
-import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
-import 'package:components_demo/filter_element_tile_demo.dart/filter_element_screen.dart';
-import 'package:components_demo/future_provider_demo/future_provider_demo.dart';
-import 'package:components_demo/index_page_list_tile_demo/index_list_tile_screen.dart';
-import 'package:components_demo/inherited_widget_demo/inherited_widget_base_screen.dart';
-import 'package:components_demo/inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
-import 'package:components_demo/interfaces_demo/vehicles_demo_screen.dart';
-import 'package:components_demo/isolate_bytes_demo/isolate_network_call_demo_screen.dart';
-import 'package:components_demo/isolates_demo/isolates_demo_screen.dart';
-import 'package:components_demo/rotaing_progress/rotating_progrss_screen.dart';
-import 'package:components_demo/rotating_card_demo/rotating_card_screen.dart';
-import 'package:components_demo/scale_demo/scale_demo_screen.dart';
-import 'package:components_demo/search_highlight_demo/search_highlight_screen.dart';
-import 'package:components_demo/sharingan_demo/sharingan_home.dart';
-import 'package:components_demo/sliver_demo/sliver_demo_screen.dart';
-import 'package:components_demo/state_notifier_demo/state_notifier_demo_screen.dart';
-import 'package:components_demo/stream_provider_demo/stream_provider_demo.dart';
-import 'package:components_demo/utils/default_appbar.dart';
+import 'package:components_demo/quill_custsomised_toolbar_demo/animations_screen.dart';
+import 'package:components_demo/quill_custsomised_toolbar_demo/matrix_transformation_demo.dart';
 import 'package:flutter/material.dart';
+
+import 'audio_player_demo/audio_player_demo.dart';
+import 'binary_tree_problems/btree_demo_screen.dart';
+import 'binary_tree_problems/triangle_demo_screen.dart';
+import 'device_info_web/device_info_web_demo_screen.dart';
+import 'dynamic_grid_demo/dynamic_grid_demo.dart';
+import 'expandable_card_demo/expansion_card_screen.dart';
+import 'filp_card_demo/flip_card_screen.dart';
+import 'filter_element_tile_demo.dart/filter_element_screen.dart';
+import 'future_provider_demo/future_provider_demo.dart';
+import 'index_page_list_tile_demo/index_list_tile_screen.dart';
+import 'inherited_widget_demo/inherited_widget_base_screen.dart';
+import 'inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
+import 'interfaces_demo/vehicles_demo_screen.dart';
+import 'isolate_bytes_demo/isolate_network_call_demo_screen.dart';
+import 'isolates_demo/isolates_demo_screen.dart';
+import 'rotaing_progress/rotating_progrss_screen.dart';
+import 'rotating_card_demo/rotating_card_screen.dart';
+import 'scale_demo/scale_demo_screen.dart';
+import 'search_highlight_demo/search_highlight_screen.dart';
+import 'sharingan_demo/sharingan_home.dart';
+import 'sliver_demo/sliver_demo_screen.dart';
+import 'state_notifier_demo/state_notifier_demo_screen.dart';
+import 'stream_provider_demo/stream_provider_demo.dart';
+import 'utils/default_appbar.dart';
+import 'quill_custsomised_toolbar_demo/quill_toolbar_screen.dart';
 
 import 'filter_pages_banner_demo/filter_pages_banner_screen.dart';
 import 'selective_provider/custom_provider_demo.dart';
@@ -40,6 +43,9 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Matrix Transformation demo": const MatrixTransformDemo(),
+    "3d Animations Demo": const AnimationsDemoScreen(),
+    "Quill Tool bar Demo": const QuillToolbarScreen(),
     "AudioPlayer Demo": const AudioPlayerDemo(),
     "TRIANGLE ART DEMO": const TriangleArtScreen(),
     "Tree Demo Screen": const TreeVisualizerScreen(),

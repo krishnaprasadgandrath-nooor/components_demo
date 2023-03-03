@@ -23,7 +23,7 @@ void createNewIsolate() {
 
 void isolateMain(SendPort sendPort) {
   int i = 0;
-  Timer.periodic(new Duration(seconds: 2), (Timer t) {
+  Timer.periodic(const Duration(seconds: 2), (Timer t) {
     if (i == 5) exit(0);
     i += 1;
 
