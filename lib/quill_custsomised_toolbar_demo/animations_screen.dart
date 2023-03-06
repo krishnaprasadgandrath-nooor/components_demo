@@ -54,8 +54,9 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen> with Single
                     alignment: Alignment.center,
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, perspective)
-                      // ..rotateX(angle)
-                      ..rotateY(angle),
+                      ..rotateX(angle)
+                    // ..rotateY(angle)
+                    ,
                     child: child,
                   );
                 },

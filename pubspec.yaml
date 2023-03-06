@@ -50,6 +50,10 @@ dependencies:
   tuple: ^2.0.1
   audioplayers: ^3.0.1
   flutter_quill: ^6.4.4
+  youtube_player_iframe: ^4.0.4
+  youtube_player_flutter: ^8.1.2
+  pointer_interceptor: ^0.9.3+4
+  video_player: ^2.5.3
 
 dev_dependencies:
   flutter_test:

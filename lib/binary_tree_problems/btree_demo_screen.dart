@@ -55,7 +55,7 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
                           children: [
                             if (bTree.root != null)
                               NodeTile(
-                                position: Offset(topCenter.dx - nodeSize / 2, topCenter.dy),
+                                position: Offset(topCenter.dx - (nodeSize / 2), topCenter.dy),
                                 nodeSize: nodeSize,
                                 node: bTree.root!,
                                 addToPosMap: addToPosMap,
@@ -116,7 +116,7 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
   }
 
   void initializeTree() {
-    bTree = BTree([12, 34, 56, 23, 45, 67, 887, 234, 1, 2, 43, 23, 13, 7]);
+    bTree = BTree([12, 34, 56 /*, 23, 45, 67, 887, 234, 1, 2, 43, 23, 13, 7*/]);
 
     print("Elements are : ${bTree.elements}");
     print("Tree Visualizer Rows : \n");
