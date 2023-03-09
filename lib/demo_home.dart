@@ -1,5 +1,8 @@
 // demo_home.dart
 
+import 'package:components_demo/c_slider_demo.dart';
+import 'package:components_demo/clip_animation_demo.dart';
+import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.dart';
 import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
 import 'package:flutter/material.dart';
 
@@ -44,6 +47,9 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "YT Controls": const SimpleYTControls(),
+    "C Slider Demo": const CSliderDemo(),
+    "Clip Anim Demo": const ClipAnimDemo(),
     "Interactive  Video Screen": const InteractiveVideoDemo(),
     "Interactive Youtube Video Screen": const InteractiveYTVideoScreen(),
     "Matrix Transformation demo": const MatrixTransformDemo(),
