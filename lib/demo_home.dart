@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'audio_player_demo/audio_player_demo.dart';
 import 'binary_tree_problems/btree_demo_screen.dart';
 import 'binary_tree_problems/triangle_demo_screen.dart';
+import 'comp_place_holder.dart';
 import 'device_info_web/device_info_web_demo_screen.dart';
 import 'dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'expandable_card_demo/expansion_card_screen.dart';
@@ -47,6 +48,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    // "Pod Player Demo": const PodPlayerDemo(),
+    "Comp Place Holder": const CompPlaceHolder(),
     "YT Controls": const SimpleYTControls(),
     "C Slider Demo": const CSliderDemo(),
     "Clip Anim Demo": const ClipAnimDemo(),
