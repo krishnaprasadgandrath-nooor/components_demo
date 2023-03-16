@@ -2,8 +2,11 @@
 
 import 'package:components_demo/c_slider_demo.dart';
 import 'package:components_demo/clip_animation_demo.dart';
+import 'package:components_demo/gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
 import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.dart';
 import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
+import 'package:components_demo/timings_editor_screen.dart';
+import 'package:components_demo/timings_editor_view.dart';
 import 'package:flutter/material.dart';
 
 import 'audio_player_demo/audio_player_demo.dart';
@@ -48,7 +51,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
-    // "Pod Player Demo": const PodPlayerDemo(),
+    "Duration Change View": const TimingsEditorScreen(),
+    "Gesture Detector Demo": const GestureDetectorDemo(),
     "Comp Place Holder": const CompPlaceHolder(),
     "YT Controls": const SimpleYTControls(),
     "C Slider Demo": const CSliderDemo(),
@@ -99,29 +103,3 @@ class _ComponentsHomeState extends State<ComponentsHome> {
             }));
   }
 }
-
-
-
-
-///Filter Elements tile demo
-    //Column(
-    //   children: [1, 2, 3]
-    //       .map((e) => Column(
-    //             children: [
-    //               FilterElementTile(
-    //                 icon: e == 1 ? Icons.abc : null,
-    //                 padding: EdgeInsets.zero,
-    //                 title: Text("Title $e"),
-    //                 trailing: Text("Go To", style: TextStyle(color: Colors.blue)),
-    //                 author: Text("Krishna"),
-    //                 showAuthor: e == 2 ? false : true,
-    //               ),
-    //               if (e != 3)
-    //                 Divider(
-    //                   indent: 5.0,
-    //                   endIndent: 5.0,
-    //                 )
-    //             ],
-    //           ))
-    //       .toList(),
-    // )

@@ -101,7 +101,7 @@ class _SimpleYTControlsState extends State<SimpleYTControls> {
                         ? Icons.pause
                         : _playerState == PlayerState.paused
                             ? Icons.play_arrow
-                            : Icons.abc,
+                            : Icons.pause,
                   )),
               IconButton(
                   onPressed: () async {
@@ -182,7 +182,7 @@ class _SimpleYTControlsState extends State<SimpleYTControls> {
   void checkAndAddComponents() {
     Set<String> visibleComponents = {};
     for (var element in components) {
-      if (element.start_time.inSeconds <= _currTime.inSeconds && _currTime.inSeconds <= element.end_time.inSeconds) {
+      if (element.startTime.inSeconds <= _currTime.inSeconds && _currTime.inSeconds <= element.endTime.inSeconds) {
         visibleComponents.add(element.id);
       }
     }

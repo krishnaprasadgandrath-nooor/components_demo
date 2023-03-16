@@ -1,9 +1,11 @@
 import 'package:components_demo/interactive__yt_video_demo/c_action_button.dart';
-import 'package:components_demo/interactive__yt_video_demo/image_component_view.dart';
+import 'package:components_demo/interactive__yt_video_demo/card_component.dart';
 import 'package:components_demo/interactive__yt_video_demo/simple_component.dart';
 import 'package:flutter/material.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+
+import 'image_component.dart';
 
 class CompHolder extends StatefulWidget {
   final SimpleComponent component;
@@ -23,7 +25,7 @@ class _CompHolderState extends State<CompHolder> {
   Widget build(BuildContext context) {
     return Positioned(
       left: widget.component.rect.left,
-      top: widget.component.rect.left,
+      top: widget.component.rect.top,
       width: widget.component.rect.width,
       height: widget.component.rect.height,
       child: TweenAnimationBuilder(
@@ -38,7 +40,7 @@ class _CompHolderState extends State<CompHolder> {
   Widget getCompView() {
     switch (widget.component.type) {
       case CompType.image:
-        return ImageCompView(widget.component.data);
+        return ImageComponent(image: widget.component.data);
       case CompType.button:
         return CActionButton(
             child: Center(
@@ -53,6 +55,8 @@ class _CompHolderState extends State<CompHolder> {
                 widget.vController.seekTo(seconds: duration.inSeconds.toDouble(), allowSeekAhead: true);
               }
             });
+      case CompType.question:
+        return const CardComponent();
       default:
         return Card(
           margin: const EdgeInsets.all(3.0),

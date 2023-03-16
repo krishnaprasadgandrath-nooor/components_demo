@@ -17,7 +17,7 @@ enum CompType {
 extension CompTypeUtil on CompType {
   String get lowerName => name.toLowerCase();
   static CompType fromName(String value) {
-    String _lowerCase = value.toLowerCase();
+    final _lowerCase = value.toLowerCase();
     if (_lowerCase == CompType.image.lowerName) return CompType.image;
     if (_lowerCase == CompType.text.lowerName) return CompType.text;
     if (_lowerCase == CompType.button.lowerName) return CompType.button;
@@ -28,15 +28,15 @@ extension CompTypeUtil on CompType {
 
 class SimpleComponent {
   final String id;
-  final Duration start_time;
-  final Duration end_time;
+  final Duration startTime;
+  final Duration endTime;
   final CompType type;
   final String data;
   final Rect rect;
   SimpleComponent(
       {required this.id,
-      required this.start_time,
-      required this.end_time,
+      required this.startTime,
+      required this.endTime,
       required this.type,
       required this.data,
       required this.rect});
@@ -51,8 +51,8 @@ class SimpleComponent {
   }) {
     return SimpleComponent(
       id: id ?? this.id,
-      start_time: start_time ?? this.start_time,
-      end_time: end_time ?? this.end_time,
+      startTime: start_time ?? this.startTime,
+      endTime: end_time ?? this.endTime,
       type: type ?? this.type,
       data: data ?? this.data,
       rect: rect ?? this.rect,
@@ -62,8 +62,8 @@ class SimpleComponent {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'start_time': start_time.toHHMMSS,
-      'end_time': end_time.toHHMMSS,
+      'start_time': startTime.toHHMMSS,
+      'end_time': endTime.toHHMMSS,
       'type': type.name,
       'data': data,
       'rect': rect.toLTWH,
@@ -73,8 +73,8 @@ class SimpleComponent {
   factory SimpleComponent.fromMap(Map<String, dynamic> map) {
     return SimpleComponent(
       id: map['id'] ?? '',
-      start_time: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
-      end_time: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
+      startTime: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
+      endTime: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
       type: CompTypeUtil.fromName(map['type']),
       data: map['data'] ?? '',
       rect: RectParser.fromLTWH(map['rect']),
@@ -87,7 +87,7 @@ class SimpleComponent {
 
   @override
   String toString() {
-    return 'SimpleComponent(id: $id, start_time: $start_time, end_time: $end_time, type: $type, data: $data)';
+    return 'SimpleComponent(id: $id, start_time: $startTime, end_time: $endTime, type: $type, data: $data)';
   }
 
   @override
@@ -96,15 +96,15 @@ class SimpleComponent {
 
     return other is SimpleComponent &&
         other.id == id &&
-        other.start_time == start_time &&
-        other.end_time == end_time &&
+        other.startTime == startTime &&
+        other.endTime == endTime &&
         other.type == type &&
         other.data == data;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^ start_time.hashCode ^ end_time.hashCode ^ type.hashCode ^ data.hashCode;
+    return id.hashCode ^ startTime.hashCode ^ endTime.hashCode ^ type.hashCode ^ data.hashCode;
   }
 }
 
@@ -119,6 +119,10 @@ extension DurationParser on Duration {
   }
 
   String get toHHMMSS {
+    return toString().split('.').first.padLeft(8);
+  }
+
+  String get toMMSS {
     return toString().split('.').first.padLeft(8);
   }
 }
