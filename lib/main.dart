@@ -1,6 +1,5 @@
 import 'package:components_demo/demo_home.dart';
-import 'package:components_demo/interactive__yt_video_demo/simple_component.dart';
-import 'package:components_demo/simple_comp_holder.dart';
+
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ComponentsHome(),
-      // home: const SimpleCompPage(),
     ));
   }
 }

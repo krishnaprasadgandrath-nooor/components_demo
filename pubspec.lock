@@ -271,7 +271,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_colorpicker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_colorpicker
       sha256: "458a6ed8ea480eb16ff892aedb4b7092b2804affd7e046591fb03127e8d8ef8b"
@@ -528,6 +528,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.0"
+  number_inc_dec:
+    dependency: "direct main"
+    description:
+      name: number_inc_dec
+      sha256: af0a35f923a2e67532bc6579e8fbf0093be8ea185e48bb543db4e3e355017ec5
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.0"
   package_config:
     dependency: transitive
     description:
@@ -822,7 +830,7 @@ packages:
     source: hosted
     version: "2.2.0"
   url_launcher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher
       sha256: "75f2846facd11168d007529d6cd8fcb2b750186bea046af9711f10b907e1587e"

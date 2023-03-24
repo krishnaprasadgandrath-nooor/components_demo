@@ -45,115 +45,112 @@ class TimingsEditorState extends State<TimingsEditor> {
   Widget build(BuildContext context) {
     return Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
       const Text("start :"),
-      ConstrainedBox(
-        constraints: BoxConstraints.loose(const Size(160, 100)),
-        child: Row(
-          children: [
-            //Start Hours
-            _CustomTimeEditField(
-              value: _startHours,
-              onChanged: (value) {
-                final hours = _parseInputValue(value);
-                setState(() {
-                  _startHours = hours;
-                });
-                _notifyTimeChanged();
-              },
-              isAtMinimun: _startHours <= 0,
-              isAtMaximum: _startHours >= 12,
-              onIncreased: () => {_startHours++, setState(() {})},
-              onDecreased: () => {_startHours--, setState(() {})},
-            ),
-            const SizedBox(width: 8),
-            //Start Minutes
-            _CustomTimeEditField(
-              value: _startMinutes,
-              onChanged: (value) {
-                final minutes = _parseInputValue(value);
-                setState(() {
-                  _startMinutes = minutes;
-                });
-                _notifyTimeChanged();
-              },
-              isAtMinimun: _startMinutes <= 0,
-              isAtMaximum: _startMinutes >= 60,
-              onIncreased: () => {_startMinutes++, setState(() {})},
-              onDecreased: () => {_startMinutes--, setState(() {})},
-            ),
-            const SizedBox(width: 8),
-            //Start seconds
-            _CustomTimeEditField(
-              value: _startSeconds,
-              onChanged: (value) {
-                final seconds = _parseInputValue(value);
-                setState(() {
-                  _startSeconds = seconds;
-                });
-                _notifyTimeChanged();
-              },
-              isAtMinimun: _startSeconds <= 0,
-              isAtMaximum: _startSeconds >= 60,
-              onIncreased: () => {_startSeconds++, setState(() {})},
-              onDecreased: () => {_startSeconds--, setState(() {})},
-            ),
-          ],
-        ),
+      Row(
+        children: [
+          //Start Hours
+          _CustomTimeEditField(
+            value: _startHours,
+            onChanged: (value) {
+              final hours = _parseInputValue(value);
+              setState(() {
+                _startHours = hours;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _startHours <= 0,
+            isAtMaximum: _startHours >= 12,
+            onIncreased: () => {_startHours++, setState(() {})},
+            onDecreased: () => {_startHours--, setState(() {})},
+          ),
+          const SizedBox(width: 8),
+          //Start Minutes
+          _CustomTimeEditField(
+            value: _startMinutes,
+            onChanged: (value) {
+              final minutes = _parseInputValue(value);
+              setState(() {
+                _startMinutes = minutes;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _startMinutes <= 0,
+            isAtMaximum: _startMinutes >= 60,
+            onIncreased: () => {_startMinutes++, setState(() {})},
+            onDecreased: () => {_startMinutes--, setState(() {})},
+          ),
+          const SizedBox(width: 8),
+          //Start seconds
+          _CustomTimeEditField(
+            value: _startSeconds,
+            onChanged: (value) {
+              final seconds = _parseInputValue(value);
+              setState(() {
+                _startSeconds = seconds;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _startSeconds <= 0,
+            isAtMaximum: _startSeconds >= 60,
+            onIncreased: () => {_startSeconds++, setState(() {})},
+            onDecreased: () => {_startSeconds--, setState(() {})},
+          ),
+        ],
       ),
+
       const SizedBox(width: 16),
       const Text("end :"),
       //End Hours
-      ConstrainedBox(
-          constraints: BoxConstraints.loose(const Size(160, 100)),
-          child: Row(
-            children: [
-              _CustomTimeEditField(
-                value: _endHours,
-                onChanged: (value) {
-                  final hours = _parseInputValue(value);
-                  setState(() {
-                    _endHours = hours;
-                  });
-                  _notifyTimeChanged();
-                },
-                isAtMinimun: _endHours <= 0,
-                isAtMaximum: _endHours >= 12,
-                onIncreased: () => {_endHours++, setState(() {})},
-                onDecreased: () => {_endHours--, setState(() {})},
-              ),
-              const SizedBox(width: 8),
-              //End Minutes
-              _CustomTimeEditField(
-                value: _endMinutes,
-                onChanged: (value) {
-                  final minutes = _parseInputValue(value);
-                  setState(() {
-                    _endMinutes = minutes;
-                  });
-                  _notifyTimeChanged();
-                },
-                isAtMinimun: _endMinutes <= 0,
-                isAtMaximum: _endMinutes >= 60,
-                onIncreased: () => {_endMinutes++, setState(() {})},
-                onDecreased: () => {_endMinutes--, setState(() {})},
-              ),
-              const SizedBox(width: 8),
-              //End Seconds
-              _CustomTimeEditField(
-                value: _endSeconds,
-                onChanged: (value) {
-                  final seconds = _parseInputValue(value);
-                  setState(() {
-                    _endSeconds = seconds;
-                  });
-                  _notifyTimeChanged();
-                },
-                isAtMinimun: _endSeconds <= 0,
-                isAtMaximum: _endSeconds >= 60,
-                onIncreased: () => {_endSeconds++, setState(() {})},
-                onDecreased: () => {_endSeconds--, setState(() {})},
-              ),
-            ],
-          )),
+
+      Row(
+        children: [
+          _CustomTimeEditField(
+            value: _endHours,
+            onChanged: (value) {
+              final hours = _parseInputValue(value);
+              setState(() {
+                _endHours = hours;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _endHours <= 0,
+            isAtMaximum: _endHours >= 12,
+            onIncreased: () => {_endHours++, setState(() {})},
+            onDecreased: () => {_endHours--, setState(() {})},
+          ),
+          const SizedBox(width: 8),
+          //End Minutes
+          _CustomTimeEditField(
+            value: _endMinutes,
+            onChanged: (value) {
+              final minutes = _parseInputValue(value);
+              setState(() {
+                _endMinutes = minutes;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _endMinutes <= 0,
+            isAtMaximum: _endMinutes >= 60,
+            onIncreased: () => {_endMinutes++, setState(() {})},
+            onDecreased: () => {_endMinutes--, setState(() {})},
+          ),
+          const SizedBox(width: 8),
+          //End Seconds
+          _CustomTimeEditField(
+            value: _endSeconds,
+            onChanged: (value) {
+              final seconds = _parseInputValue(value);
+              setState(() {
+                _endSeconds = seconds;
+              });
+              _notifyTimeChanged();
+            },
+            isAtMinimun: _endSeconds <= 0,
+            isAtMaximum: _endSeconds >= 60,
+            onIncreased: () => {_endSeconds++, setState(() {})},
+            onDecreased: () => {_endSeconds--, setState(() {})},
+          ),
+        ],
+      ),
       const SizedBox(height: 8),
       const Text("total Duration :"),
       Text(

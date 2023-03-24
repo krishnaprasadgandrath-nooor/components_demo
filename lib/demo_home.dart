@@ -2,11 +2,12 @@
 
 import 'package:components_demo/c_slider_demo.dart';
 import 'package:components_demo/clip_animation_demo.dart';
+import 'package:components_demo/decoration_editor.dart/decoration_editor_screen.dart';
 import 'package:components_demo/gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
+import 'package:components_demo/int_video_views/int_video_screen.dart';
 import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.dart';
 import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
 import 'package:components_demo/timings_editor_screen.dart';
-import 'package:components_demo/timings_editor_view.dart';
 import 'package:flutter/material.dart';
 
 import 'audio_player_demo/audio_player_demo.dart';
@@ -51,6 +52,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Decoration Editor Demo": const DecoreationEditorScreen(),
+    "Int Edit Views Demo": const IntVideoEditScreen(),
     "Duration Change View": const TimingsEditorScreen(),
     "Gesture Detector Demo": const GestureDetectorDemo(),
     "Comp Place Holder": const CompPlaceHolder(),

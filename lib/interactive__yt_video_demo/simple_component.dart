@@ -7,77 +7,80 @@ const String kEndTime = "end_time";
 const String kType = "type";
 const String kData = "data";
 
-enum CompType {
-  image,
-  text,
-  button,
-  question,
-}
+enum CompType { image, text, button, question, link }
 
 extension CompTypeUtil on CompType {
   String get lowerName => name.toLowerCase();
   static CompType fromName(String value) {
-    final _lowerCase = value.toLowerCase();
+    String _lowerCase = value.toLowerCase();
     if (_lowerCase == CompType.image.lowerName) return CompType.image;
     if (_lowerCase == CompType.text.lowerName) return CompType.text;
     if (_lowerCase == CompType.button.lowerName) return CompType.button;
     if (_lowerCase == CompType.question.lowerName) return CompType.question;
+    if (_lowerCase == CompType.link.lowerName) return CompType.link;
     throw Exception("Error while parsing name");
   }
 }
 
 class SimpleComponent {
   final String id;
-  final Duration startTime;
-  final Duration endTime;
+  final Duration start_time;
+  final Duration end_time;
   final CompType type;
-  final String data;
+  final dynamic data;
   final Rect rect;
-  SimpleComponent(
-      {required this.id,
-      required this.startTime,
-      required this.endTime,
-      required this.type,
-      required this.data,
-      required this.rect});
+  final bool pauseOnDisplay;
+  SimpleComponent({
+    required this.id,
+    required this.start_time,
+    required this.end_time,
+    required this.type,
+    required this.data,
+    required this.rect,
+    this.pauseOnDisplay = false,
+  });
 
   SimpleComponent copyWith({
     String? id,
     Duration? start_time,
     Duration? end_time,
     CompType? type,
-    String? data,
+    dynamic? data,
     Rect? rect,
+    bool? pauseOnDisplay,
   }) {
     return SimpleComponent(
       id: id ?? this.id,
-      startTime: start_time ?? this.startTime,
-      endTime: end_time ?? this.endTime,
+      start_time: start_time ?? this.start_time,
+      end_time: end_time ?? this.end_time,
       type: type ?? this.type,
       data: data ?? this.data,
       rect: rect ?? this.rect,
+      pauseOnDisplay: pauseOnDisplay ?? this.pauseOnDisplay,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'start_time': startTime.toHHMMSS,
-      'end_time': endTime.toHHMMSS,
+      'start_time': start_time.toHHMMSS,
+      'end_time': end_time.toHHMMSS,
       'type': type.name,
       'data': data,
       'rect': rect.toLTWH,
+      'pauseOnDisplay': pauseOnDisplay,
     };
   }
 
   factory SimpleComponent.fromMap(Map<String, dynamic> map) {
     return SimpleComponent(
       id: map['id'] ?? '',
-      startTime: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
-      endTime: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
+      start_time: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
+      end_time: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
       type: CompTypeUtil.fromName(map['type']),
       data: map['data'] ?? '',
       rect: RectParser.fromLTWH(map['rect']),
+      pauseOnDisplay: map['pauseOnDisplay'],
     );
   }
 
@@ -87,7 +90,7 @@ class SimpleComponent {
 
   @override
   String toString() {
-    return 'SimpleComponent(id: $id, start_time: $startTime, end_time: $endTime, type: $type, data: $data)';
+    return 'SimpleComponent(id: $id, start_time: $start_time, end_time: $end_time, type: $type, data: $data, pauseOnDisplay : $pauseOnDisplay)';
   }
 
   @override
@@ -96,15 +99,21 @@ class SimpleComponent {
 
     return other is SimpleComponent &&
         other.id == id &&
-        other.startTime == startTime &&
-        other.endTime == endTime &&
+        other.start_time == start_time &&
+        other.end_time == end_time &&
         other.type == type &&
-        other.data == data;
+        other.data == data &&
+        other.pauseOnDisplay == pauseOnDisplay;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^ startTime.hashCode ^ endTime.hashCode ^ type.hashCode ^ data.hashCode;
+    return id.hashCode ^
+        start_time.hashCode ^
+        end_time.hashCode ^
+        type.hashCode ^
+        data.hashCode ^
+        pauseOnDisplay.hashCode;
   }
 }
 

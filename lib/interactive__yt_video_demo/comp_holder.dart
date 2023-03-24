@@ -4,7 +4,7 @@ import 'package:components_demo/interactive__yt_video_demo/simple_component.dart
 import 'package:flutter/material.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'image_component.dart';
 
 class CompHolder extends StatefulWidget {
@@ -21,6 +21,14 @@ class CompHolder extends StatefulWidget {
 }
 
 class _CompHolderState extends State<CompHolder> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.component.pauseOnDisplay) {
+      widget.vController.pauseVideo();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -45,29 +53,57 @@ class _CompHolderState extends State<CompHolder> {
         return CActionButton(
             child: Center(
               child: Text(
-                "Go To : ${widget.component.data}",
+                "${widget.component.data['title']}",
                 style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
               ),
             ),
             onClick: () {
-              Duration? duration = DurationParser.fromHHMMSS(widget.component.data);
+              Duration? duration = DurationParser.fromHHMMSS(widget.component.data['to']);
               if (duration != null) {
                 widget.vController.seekTo(seconds: duration.inSeconds.toDouble(), allowSeekAhead: true);
               }
             });
       case CompType.question:
-        return const CardComponent();
+        return CardComponent(data: widget.component.data);
+      case CompType.link:
+        return Card(
+            color: Colors.black,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.link,
+                  color: Colors.orange,
+                ),
+                TextButton(
+                    onPressed: () {
+                      final Uri url = Uri.parse(widget.component.data['url']);
+                      launchInBrowser(url);
+                    },
+                    child: Text("${widget.component.data['title']}",
+                        style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)))
+              ],
+            ));
       default:
         return Card(
           margin: const EdgeInsets.all(3.0),
+          color: Colors.yellow,
           child: Center(
             child: Text(
-              widget.component.data,
+              widget.component.data.toUpperCase(),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.w300),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
         );
+    }
+  }
+
+  Future<void> launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
     }
   }
 }

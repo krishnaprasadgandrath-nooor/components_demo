@@ -4,16 +4,20 @@
     "start_time": "0:00:10",
     "end_time": "0:00:15",
     "type": "text",
-    "data": "Welcom To Interactive Video Demo",
-    "rect":"10_20_250_30"
+    "data": "Welcome To Interactive Video Demo",
+    "rect":"10_20_300_30",
+    "pauseOnDisplay" : false
   },
   {
     "id": "A90RAPY8",
     "start_time": "0:00:20",
     "end_time": "0:00:25",
     "type": "button",
-    "data": "0:01:00",
-    "rect":"10_20_150_60"
+    "data": {"title":"Chameleon",
+            "to":"0:01:00"},
+    "rect":"10_20_150_60",
+    "pauseOnDisplay" : false
+
   },
   {
     "id": "V7X0IA84",
@@ -21,7 +25,8 @@
     "end_time": "0:00:35",
     "type": "image",
     "data": "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQ_qAYan3gaKhggO3wWtEK0wKPY1qaRtQPRrGWAZUDQNMu8XHZjKGKg6rn6GlfZEGxEQ66mJN5Ddt6XRfQ",
-    "rect":"100_20_150_150"
+    "rect":"100_20_150_150",
+    "pauseOnDisplay" : false
   },
   {
     "id": "V7X0IASD",
@@ -29,23 +34,27 @@
     "end_time": "0:00:35",
     "type": "text",
     "data": "Boabba Tree",
-    "rect":"100_180_150_30"
+    "rect":"100_180_150_30",
+    "pauseOnDisplay" : false
   },
   {
     "id": "HFU9QVS0",
     "start_time": "0:00:40",
     "end_time": "0:00:45",
     "type": "button",
-    "data": "0:01:30",
-    "rect":"30_40_180_50"
+    "data": {"title":"Insect",
+            "to":"0:01:30"},
+    "rect":"30_40_180_50",
+    "pauseOnDisplay" : false
   },
   {
     "id": "2CRSZ62M",
     "start_time": "0:00:55",
     "end_time": "0:01:00",
     "type": "question",
-    "data": "trueFalse",
-    "rect":"300_400_300_200"
+    "data": "2CRSZ62M",
+    "rect":"300_400_300_200",
+    "pauseOnDisplay" : true
   },
   {
     "id": "XAO1YQCI",
@@ -53,15 +62,18 @@
     "end_time": "0:01:05",
     "type": "image",
     "data": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_JahxUhWJXrPL625y1qva9K5ZgevoSEl0iNiJNv4Lq0qtK6tltvvkyEJffwWJc-26vA&usqp=CAU ",
-    "rect":"40_60_160_200"
+    "rect":"40_60_160_200",
+    "pauseOnDisplay" : false
   },
   {
     "id": "JILB6BW5",
     "start_time": "0:01:10",
     "end_time": "0:01:15",
     "type": "button",
-    "data": "0:00:27",
-    "rect":"80_150_200_50"
+    "data": {"title":"Go Back",
+            "to":"0:00:27"},
+    "rect":"80_150_200_50",
+    "pauseOnDisplay" : false
   },
   {
     "id": "4FIKEV61",
@@ -69,15 +81,18 @@
     "end_time": "0:01:25",
     "type": "text",
     "data": "Rock Formations",
-    "rect":"150_50_160_30"
+    "rect":"150_50_160_30",
+    "pauseOnDisplay" : false
   },
   {
     "id": "QDFTDGQX",
     "start_time": "0:01:30",
     "end_time": "0:01:35",
     "type": "button",
-    "data": "0:01:00",
-    "rect":"75_40_150_50"
+    "data": {"title":"Go Back",
+            "to":"0:01:00"},
+    "rect":"75_40_150_50",
+    "pauseOnDisplay" : false
   },
   {
     "id": "BLC2L10J",
@@ -85,6 +100,43 @@
     "end_time": "0:01:42",
     "type": "text",
     "data": "Kingfisher Bird",
-    "rect":"200_150_150_40"
+    "rect":"200_150_150_40",
+    "pauseOnDisplay" : false
+  },
+  {
+    "id": "UPI76B3S",
+    "start_time": "0:02:16",
+    "end_time": "0:02:20",
+    "type": "text",
+    "data": "Hoodoos,Bryce Canyon",
+    "rect":"20_150_150_40",
+    "pauseOnDisplay" : false
+  },
+  {
+    "id": "KGF1HTK8",
+    "start_time": "0:02:16",
+    "end_time": "0:02:20",
+    "type": "link",
+    "data": {"title":"Hodoos officiail website","url":"https://www.nps.gov/brca/learn/nature/hoodoos.htm"},
+    "rect":"20_200_350_40",
+    "pauseOnDisplay" : true
+  },
+  {
+    "id": "GIF891K2",
+    "start_time": "0:02:38",
+    "end_time": "0:02:41",
+    "type": "question",
+    "data": "GIF891K2",
+    "rect":"100_400_200_200",
+    "pauseOnDisplay" : true
+  },
+  {
+    "id": "FAB10R5G",
+    "start_time": "0:01:47",
+    "end_time": "0:01:53",
+    "type": "link",
+    "data": {"title":"Watch Alpine Forest","url":"https://www.youtube.com/watch?v=my5iCynvVFA"},
+    "rect":"80_150_300_50",
+    "pauseOnDisplay" : true
   }
 ]
