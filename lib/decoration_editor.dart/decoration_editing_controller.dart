@@ -23,25 +23,6 @@ class DEditingController extends ChangeNotifier {
   Color? get color => _fillType == DFillType.solid ? _color : null;
   BoxShape get shape => _shape;
 
-  // Gradient? get gradient {
-  //   if (_fillType == DFillType.solid) return null;
-  //   if (_gradType == DGradType.linear)
-  //     return LinearGradient(colors: _gradientColors, stops: _gradientStops);
-  //   else if (_gradType == DGradType.radial)
-  //     return RadialGradient(colors: _gradientColors, stops: _gradientStops);
-  //   else
-  //     return SweepGradient(colors: _gradientColors, stops: _gradientStops);
-  // }
-
-  // BoxDecoration get decoration => BoxDecoration(
-  //     border: _border,
-  //     borderRadius: _borderRadius,
-  //     boxShadow: _shadows,
-  //     color: _color,
-  //     gradient: _gradient,
-  //     image: _image,
-  //     shape: _shape);
-
   ///Setters
   set fillType(DFillType value) {
     if (_fillType != value) {

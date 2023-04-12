@@ -6,8 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class StateNotiferDemoScreen extends ConsumerWidget {
   StateNotiferDemoScreen({super.key});
-  TextEditingController nameController = TextEditingController();
-  TextEditingController placeController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController placeController = TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

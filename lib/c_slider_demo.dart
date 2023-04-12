@@ -85,10 +85,10 @@ class _CSliderDemoState extends State<CSliderDemo> with SingleTickerProviderStat
   void tickerListener(elapsed) {
     if (checkDuration + elapsed >= duration2) {
       _ticker.stop();
-      setState(() {});
+      if (mounted) setState(() {});
     } else {
       _duration = checkDuration + elapsed;
-      setState(() {});
+      if (mounted) setState(() {});
     }
   }
 }

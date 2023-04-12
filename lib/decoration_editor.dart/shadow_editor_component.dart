@@ -104,6 +104,7 @@ class _DShadowEditorState extends State<DShadowEditor> {
                   child: NumberInput(
                     label: "dx",
                     initialValue: shadow.offset.dx,
+                    minValue: -100.0,
                     onChanged: (x) => updateShadow(offset: Offset(x, shadow.offset.dy)),
                   ),
                 ),
@@ -111,6 +112,7 @@ class _DShadowEditorState extends State<DShadowEditor> {
                   width: 80.0,
                   child: NumberInput(
                     label: "dy",
+                    minValue: -100.0,
                     initialValue: shadow.offset.dx,
                     onChanged: (y) => updateShadow(offset: Offset(shadow.offset.dx, y)),
                   ),

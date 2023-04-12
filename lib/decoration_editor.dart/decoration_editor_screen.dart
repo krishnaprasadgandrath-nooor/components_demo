@@ -66,30 +66,33 @@ class _DecoreationEditorScreenState extends State<DecoreationEditorScreen> {
                 decoration: const BoxDecoration(color: Colors.white, boxShadow: [
                   BoxShadow(blurRadius: 2.0, spreadRadius: 2.0, color: Colors.grey, offset: Offset(-2, 0))
                 ]),
-                child: Column(
-                  children: [
-                    FillTypeEditor(_controller),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          constraints: const BoxConstraints.expand(height: 30.0),
-                          alignment: Alignment.center,
-                          color: Colors.black26,
-                          child: const Text("Shape"),
-                        ),
-                        DropdownButton(
-                          value: _controller.shape,
-                          items: BoxShape.values.map((e) => DropdownMenuItem(value: e, child: Text(e.name))).toList(),
-                          onChanged: (value) {
-                            if (value != null) _controller.update(shape: value);
-                          },
-                        )
-                      ],
-                    ),
-                    if (_controller.shape != BoxShape.circle) BorderRadiusEditor(_controller),
-                    ShadowEditor(_controller),
-                  ],
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      FillTypeEditor(_controller),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            constraints: const BoxConstraints.expand(height: 30.0),
+                            alignment: Alignment.center,
+                            color: Colors.black26,
+                            child: const Text("Shape"),
+                          ),
+                          DropdownButton(
+                            value: _controller.shape,
+                            items: BoxShape.values.map((e) => DropdownMenuItem(value: e, child: Text(e.name))).toList(),
+                            onChanged: (value) {
+                              if (value != null) _controller.update(shape: value);
+                            },
+                          )
+                        ],
+                      ),
+                      if (_controller.shape != BoxShape.circle) BorderRadiusEditor(_controller),
+                      ShadowEditor(_controller),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -1,15 +1,24 @@
 // demo_home.dart
 
 import 'package:components_demo/c_slider_demo.dart';
+import 'package:components_demo/canvas_vertices_demo/canvas_vertices_demo.dart';
 import 'package:components_demo/clip_animation_demo.dart';
+import 'package:components_demo/colorful_loader/colorful_loader_Demo.dart';
+import 'package:components_demo/connected_nodes_demo/connected_nodes_demo.dart';
 import 'package:components_demo/decoration_editor.dart/decoration_editor_screen.dart';
+import 'package:components_demo/expanding_image_gallery/expanding_image_screen.dart';
 import 'package:components_demo/gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
+import 'package:components_demo/honey_comb_tiles/honey_comb_images_demo.dart';
 import 'package:components_demo/int_video_views/int_video_screen.dart';
 import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.dart';
 import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
+import 'package:components_demo/mouse_clip_demo/animated_bezier_demo.dart';
+import 'package:components_demo/mouse_clip_demo/mouse_clip_screen.dart';
 import 'package:components_demo/timings_editor_screen.dart';
+import 'package:components_demo/web_demo/web_demo_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'animated_switch_screen.dart';
 import 'audio_player_demo/audio_player_demo.dart';
 import 'binary_tree_problems/btree_demo_screen.dart';
 import 'binary_tree_problems/triangle_demo_screen.dart';
@@ -21,6 +30,7 @@ import 'filp_card_demo/flip_card_screen.dart';
 import 'filter_element_tile_demo.dart/filter_element_screen.dart';
 import 'filter_pages_banner_demo/filter_pages_banner_screen.dart';
 import 'future_provider_demo/future_provider_demo.dart';
+import 'graphx_fun_demo/graphx_fun_demo.dart';
 import 'index_page_list_tile_demo/index_list_tile_screen.dart';
 import 'inherited_widget_demo/inherited_widget_base_screen.dart';
 import 'inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
@@ -28,6 +38,7 @@ import 'interactive__yt_video_demo/interactive_yt_video_screen.dart';
 import 'interfaces_demo/vehicles_demo_screen.dart';
 import 'isolate_bytes_demo/isolate_network_call_demo_screen.dart';
 import 'isolates_demo/isolates_demo_screen.dart';
+import 'particle_deflect_demo/particle_deflect_demo.dart';
 import 'quill_custsomised_toolbar_demo/animations_screen.dart';
 import 'quill_custsomised_toolbar_demo/matrix_transformation_demo.dart';
 import 'quill_custsomised_toolbar_demo/quill_toolbar_screen.dart';
@@ -52,6 +63,17 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Web Demo": const WebDemoScreen(),
+    "Canvas Vertices Demo": const CanvasVerticesDemo(),
+    "Aniamted Bezier Demo": const AnimatedBezierDemo(),
+    "Particle Deflect Demo": const ParticleDeflectDemo(),
+    "Mouse Clip Demo": const MouseClipScreen(),
+    "Colorful Loader Demo": const ColorfulLoaderDemo(),
+    "Connected Nodes Demo": const ConnectedNodesDemo(),
+    "Graphx Fun Demo": const GraphxFunDemo(),
+    "Animated Switch Demo": const AnimatedSwitchScreen(),
+    "Honey Comb Layout Demo": const HoneyCombDemoScreen(),
+    "Expanding On Hover Demo": const ExpandingImageGalleryScreen(),
     "Decoration Editor Demo": const DecoreationEditorScreen(),
     "Int Edit Views Demo": const IntVideoEditScreen(),
     "Duration Change View": const TimingsEditorScreen(),

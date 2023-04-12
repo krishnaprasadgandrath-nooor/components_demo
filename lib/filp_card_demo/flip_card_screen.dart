@@ -17,6 +17,7 @@ class _FlipCardScreenState extends State<FlipCardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar.appBar(context, "Flip Card Demo"),
+      backgroundColor: Colors.transparent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
