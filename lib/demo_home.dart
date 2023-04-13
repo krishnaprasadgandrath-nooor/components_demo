@@ -7,6 +7,7 @@ import 'package:components_demo/colorful_loader/colorful_loader_Demo.dart';
 import 'package:components_demo/connected_nodes_demo/connected_nodes_demo.dart';
 import 'package:components_demo/decoration_editor.dart/decoration_editor_screen.dart';
 import 'package:components_demo/expanding_image_gallery/expanding_image_screen.dart';
+import 'package:components_demo/flow_demo/flow_demo_screen.dart';
 import 'package:components_demo/gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
 import 'package:components_demo/honey_comb_tiles/honey_comb_images_demo.dart';
 import 'package:components_demo/int_video_views/int_video_screen.dart';
@@ -14,6 +15,7 @@ import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.da
 import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
 import 'package:components_demo/mouse_clip_demo/animated_bezier_demo.dart';
 import 'package:components_demo/mouse_clip_demo/mouse_clip_screen.dart';
+import 'package:components_demo/pong_demo/pong_screen.dart';
 import 'package:components_demo/timings_editor_screen.dart';
 import 'package:components_demo/web_demo/web_demo_screen.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +65,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Flow Demo": const FlowDemo(),
+    "Pong Demo": const PongDemo(),
     "Web Demo": const WebDemoScreen(),
     "Canvas Vertices Demo": const CanvasVerticesDemo(),
     "Aniamted Bezier Demo": const AnimatedBezierDemo(),

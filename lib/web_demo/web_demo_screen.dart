@@ -30,14 +30,10 @@ class _WebDemoScreenState extends State<WebDemoScreen> {
     return Scaffold(
       appBar: DefaultAppBar.appBar(context, "Web Demo"),
       body: ListView.builder(
-        itemCount: 3,
-        itemBuilder: (context, index) => component(),
+        itemCount: 1,
+        itemBuilder: (context, index) => WebComponent(),
       ),
     );
-  }
-
-  Widget component() {
-    return WebComponent();
   }
 }
 

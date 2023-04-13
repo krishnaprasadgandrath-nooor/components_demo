@@ -6,6 +6,7 @@ class DefaultAppBar {
 
   static AppBar appBar(BuildContext context, String title, {bool noLeading = false}) {
     return AppBar(
+      backgroundColor: Colors.orangeAccent.withAlpha(100),
       leading: !noLeading
           ? IconButton(
               onPressed: () => Navigator.pop(context),
