@@ -40,7 +40,7 @@ dependencies:
   device_info_plus: ^8.0.0
   random_string: ^2.3.1
   http: ^0.13.5
-  native_pdf_view: ^4.2.0
+  # native_pdf_view: ^4.2.0
   intl: ^0.18.0
   uuid: ^3.0.7
   filepicker_windows: ^2.0.2

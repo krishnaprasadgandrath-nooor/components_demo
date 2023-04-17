@@ -1,26 +1,25 @@
 // demo_home.dart
 
-import 'package:components_demo/c_slider_demo.dart';
-import 'package:components_demo/canvas_vertices_demo/canvas_vertices_demo.dart';
-import 'package:components_demo/clip_animation_demo.dart';
-import 'package:components_demo/colorful_loader/colorful_loader_Demo.dart';
-import 'package:components_demo/connected_nodes_demo/connected_nodes_demo.dart';
-import 'package:components_demo/decoration_editor.dart/decoration_editor_screen.dart';
-import 'package:components_demo/expanding_image_gallery/expanding_image_screen.dart';
-import 'package:components_demo/flow_demo/flow_demo_screen.dart';
-import 'package:components_demo/gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
-import 'package:components_demo/honey_comb_tiles/honey_comb_images_demo.dart';
-import 'package:components_demo/int_video_views/int_video_screen.dart';
-import 'package:components_demo/interactive__yt_video_demo/simple_yt_controls.dart';
-import 'package:components_demo/interactive_video_demo/interactive_video_demo.dart';
-import 'package:components_demo/mouse_clip_demo/animated_bezier_demo.dart';
-import 'package:components_demo/mouse_clip_demo/mouse_clip_screen.dart';
-import 'package:components_demo/pong_demo/pong_screen.dart';
-import 'package:components_demo/timings_editor_screen.dart';
-import 'package:components_demo/web_demo/web_demo_screen.dart';
+import 'c_slider_demo/c_slider_demo.dart';
+import 'canvas_vertices_demo/canvas_vertices_demo.dart';
+import 'clip_animation_demo.dart';
+import 'colorful_loader/colorful_loader_Demo.dart';
+import 'connected_nodes_demo/connected_nodes_demo.dart';
+import 'decoration_editor.dart/decoration_editor_screen.dart';
+import 'expanding_image_gallery/expanding_image_screen.dart';
+import 'flow_demo/flow_demo_screen.dart';
+import 'gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
+import 'honey_comb_tiles/honey_comb_images_demo.dart';
+import 'int_video_views/int_video_screen.dart';
+import 'interactive__yt_video_demo/simple_yt_controls.dart';
+import 'interactive_video_demo/interactive_video_demo.dart';
+import 'mouse_clip_demo/animated_bezier_demo.dart';
+import 'mouse_clip_demo/mouse_clip_screen.dart';
+import 'pong_demo/pong_screen.dart';
+import 'timings_editor_demo/timings_editor_screen.dart';
+import 'web_demo/web_demo_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'animated_switch_screen.dart';
+import 'animated_switch_demo/animated_switch_screen.dart';
 import 'audio_player_demo/audio_player_demo.dart';
 import 'binary_tree_problems/btree_demo_screen.dart';
 import 'binary_tree_problems/triangle_demo_screen.dart';
@@ -49,6 +48,7 @@ import 'rotating_card_demo/rotating_card_screen.dart';
 import 'scale_demo/scale_demo_screen.dart';
 import 'search_highlight_demo/search_highlight_screen.dart';
 import 'selective_provider/custom_provider_demo.dart';
+import 'shadow_demo.dart';
 import 'sharingan_demo/sharingan_home.dart';
 import 'sliver_demo/sliver_demo_screen.dart';
 import 'state_notifier_demo/state_notifier_demo_screen.dart';
@@ -65,6 +65,7 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    "Shadow Demo": const ShadowDemo(),
     "Flow Demo": const FlowDemo(),
     "Pong Demo": const PongDemo(),
     "Web Demo": const WebDemoScreen(),
@@ -99,7 +100,7 @@ class _ComponentsHomeState extends State<ComponentsHome> {
     "Iherited Widget Variant Demo": const InheritedWidgetVariantScreen(),
     "Iherited Widget Demo": const InheritedWidgetScreen(),
     "Sliver List Demo": const SliverDemoScreen(),
-    "Network Isolate Demo": const IsolateBytesDemoScreen(),
+    /* "Network Isolate Demo": const IsolateBytesDemoScreen(), */ ///Android Not supported
     "Isolate Demo": const IsolateDemoScreen(),
     "Sharingan Demo": const SharinganHome(),
     "Expandanble Card": const ExpandableCardScreen(),

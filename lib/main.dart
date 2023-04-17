@@ -1,3 +1,4 @@
+import 'package:components_demo/pong_demo/pong_screen.dart';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      // home: AnimatedSwitchScreen(),
+      // home: PongDemo(),
       home: const ComponentsHome(),
     ));
   }

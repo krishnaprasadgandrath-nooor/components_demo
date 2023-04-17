@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:components_demo/timeline_slider.dart';
+import 'package:components_demo/timeline_slider_demo/timeline_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 

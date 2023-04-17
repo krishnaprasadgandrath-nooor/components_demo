@@ -1,5 +1,5 @@
 import 'package:components_demo/decoration_editor.dart/decoration_editing_controller.dart';
-import 'package:components_demo/number_input.dart';
+import 'package:components_demo/number_input_demo/number_input.dart';
 import 'package:flutter/material.dart';
 
 class BorderRadiusEditor extends StatefulWidget {

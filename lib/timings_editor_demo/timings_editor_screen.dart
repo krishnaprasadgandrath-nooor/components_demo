@@ -1,5 +1,5 @@
 import 'package:components_demo/interactive__yt_video_demo/simple_component.dart';
-import 'package:components_demo/timings_editor_view.dart';
+import 'timings_editor_view.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';

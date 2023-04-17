@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'd_editor_utils.dart';
-import '../number_input.dart';
+import '../number_input_demo/number_input.dart';
 
 class DShadowEditor extends StatefulWidget {
   final int index;

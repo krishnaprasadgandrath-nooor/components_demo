@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphx/graphx.dart';
 
 import 'package:components_demo/utils/default_appbar.dart';
+import 'package:uuid/uuid.dart';
 
 class PongDemo extends StatefulWidget {
   const PongDemo({super.key});
@@ -14,6 +15,7 @@ class _PongDemoState extends State<PongDemo> {
   final Signal gameOverSignal = Signal();
   final EventSignal<int> livesSignal = EventSignal();
   final EventSignal<int> scoreSignal = EventSignal();
+
   bool isGameOver = false;
   int lives = 3;
   int score = 0;
@@ -21,14 +23,26 @@ class _PongDemoState extends State<PongDemo> {
   @override
   void initState() {
     super.initState();
+    updateGameOver();
+    updateLives();
+    incrementScore();
+  }
+
+  void updateGameOver() {
     gameOverSignal.add(() {
       isGameOver = !isGameOver;
       setState(() {});
     });
+  }
+
+  void updateLives() {
     livesSignal.add((lives) {
       this.lives = lives;
       setState(() {});
     });
+  }
+
+  void incrementScore() {
     scoreSignal.add((score) {
       if (this.score != score) {
         this.score = score;
@@ -107,6 +121,8 @@ class PongScene extends GSprite {
   final double pongSize = 10.0;
   final double reflectorWidth = 100.0;
   final bottomPadding = 10.0;
+  final brickWidth = 100.0;
+  final brickHeight = 20.0;
   PongScene({required this.gameOverSignal, required this.livesSignal, required this.scoreSignal});
 
   int lives = 3;
@@ -116,10 +132,15 @@ class PongScene extends GSprite {
 
   late GShape reflector;
   late GShape pongShape;
+  late GSprite bricksContainer;
+  late GSprite collapsedBricksContainer;
+  List<Brick> bricks = [];
+  List<Brick> collapsedBricks = [];
 
   late final Pong pong = Pong(x: stageWidth / 2, y: stageHeight / 2, radius: pongSize, xSpeed: 2.0, ySpeed: 2.0);
 
   final tweenPos = 0.0.twn;
+  final collideTwn = 0.0.twn;
 
   ///Getters
   double get stageHeight => stage!.stageHeight;
@@ -127,7 +148,7 @@ class PongScene extends GSprite {
   @override
   void addedToStage() {
     mouseChildren = true;
-    init();
+    initUI();
     onMouseMove.add(updateReflectorPos);
     super.addedToStage();
   }
@@ -138,12 +159,15 @@ class PongScene extends GSprite {
     if (!isGameOver) {
       movePong();
       updatePongPosition();
-      scoreSignal.call(t.toInt());
+      checkPongCollisionAndDrawBricks();
+      if (collapsedBricks.isNotEmpty) {
+        drawCollpsedBricks();
+      }
     }
     super.update(delta);
   }
 
-  void init() {
+  void initUI() {
     graphics.beginFill(Colors.black).drawRect(0, 0, stageWidth, stageHeight).endFill();
     reflector = () {
       final shape1 = GShape();
@@ -164,6 +188,31 @@ class PongScene extends GSprite {
     }();
     addChild(reflector);
     addChild(pongShape);
+
+    bricksContainer = GSprite();
+    bool add = false;
+    for (double y = brickHeight / 2; y < stageHeight / 3; y += brickHeight + 3) {
+      for (double x = brickWidth / 2; x < stageWidth; x += brickWidth + 3) {
+        if (add == false) {
+          add = true;
+          continue;
+        }
+        add = false;
+        final brick = Brick(
+            x: x,
+            y: y,
+            color: Colors.accents[bricks.length % Colors.accents.length],
+            height: brickHeight,
+            width: brickWidth);
+        bricks.add(brick);
+        bricksContainer.addChild(brick.shape);
+      }
+      add = !add;
+    }
+    addChild(bricksContainer);
+
+    collapsedBricksContainer = GSprite();
+    addChild(collapsedBricksContainer);
   }
 
   void movePong() {
@@ -176,11 +225,11 @@ class PongScene extends GSprite {
       pong.x = stageWidth;
       pong.xSpeed *= -1;
     }
-    if ((pong.y - reflector.y).abs() < pongSize / 2 && (pong.x < reflector.x + 50.0 && pong.x > reflector.x - 50.0)) {
-      pong.ySpeed *= -1;
+    if ((pong.y - reflector.y).abs() < pongSize / 2 && (pong.x - reflector.x).abs() < 50.0) {
+      pong.ySpeed > 0 ? pong.ySpeed *= -1 : null;
     }
-    if (pong.y < 0) {
-      pong.y = 0;
+    if (pong.y < 0 + pongSize / 2) {
+      pong.y = pongSize / 2;
       pong.ySpeed *= -1;
     }
     if (pong.y > stageHeight) {
@@ -214,6 +263,85 @@ class PongScene extends GSprite {
           onComplete: () => tweenPos.value = 0);
       // reflector.x = dx;
     }
+  }
+
+  void checkPongCollisionAndDrawBricks() {
+    int collidedIndex = -1;
+    Brick? goneBrick;
+    for (var i = 0; i < bricks.length; i++) {
+      final brick = bricks[i];
+      bool collided = brick.checkPongCollision(pong.x, pong.y, pongSize / 2);
+      if (collided) {
+        collidedIndex = i;
+        goneBrick = brick;
+        break;
+      }
+    }
+    if (collidedIndex > 0) {
+      pong.ySpeed *= -1;
+      scoreSignal.call(score++);
+      bricks.removeAt(collidedIndex);
+      bricksContainer.children.removeAt(collidedIndex);
+      if (goneBrick != null) collapsedBricks.add(goneBrick);
+      startBricksTween();
+    }
+  }
+
+  void startBricksTween() {
+    collideTwn.tween(1, duration: 1, onUpdate: () {
+      for (var i = 0; i < collapsedBricks.length; i++) {
+        collapsedBricks[i].y = collapsedBricks[i].y + 2;
+        collapsedBricks[i].color = collapsedBricks[i].color.withOpacity(1 - collideTwn.value);
+      }
+    }, onComplete: () {
+      collideTwn.value = 0;
+      collapsedBricks.clear();
+      collapsedBricksContainer.children.clear();
+      collapsedBricksContainer.graphics.clear();
+    });
+  }
+
+  void redrawBricks() {
+    bricksContainer.graphics.clear();
+    for (var i = 0; i < bricks.length; i++) {
+      bricksContainer.addChild(bricks[i].shape);
+    }
+  }
+
+  void drawCollpsedBricks() {
+    collapsedBricksContainer.children.clear();
+    for (var i = 0; i < collapsedBricks.length; i++) {
+      collapsedBricksContainer.addChild(collapsedBricks[i].shape);
+    }
+  }
+}
+
+class Brick {
+  late String id;
+  double x;
+  double y;
+  Color color;
+  double height;
+  double width;
+  Brick({
+    required this.x,
+    required this.y,
+    required this.color,
+    required this.height,
+    required this.width,
+  }) {
+    id = const Uuid().v1();
+  }
+
+  GShape get shape => GShape()
+    ..graphics.beginFill(color).drawRect(x - width / 2, y - height / 2, width, height).endFill()
+    ..userData = id;
+
+  bool checkPongCollision(double ballX, double ballY, double radius) {
+    if ((ballY - y).abs() > (radius + height / 2)) return false;
+    if ((ballX - x).abs() > (width / 2)) return false;
+    if ((ballX - x).abs() < (radius + width / 2) && (ballY - y).abs() < (radius + height / 2)) return true;
+    return false;
   }
 }
 

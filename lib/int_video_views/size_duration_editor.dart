@@ -1,7 +1,9 @@
-import 'package:components_demo/number_input.dart';
-import 'package:components_demo/timings_editor_view.dart';
+import 'package:components_demo/number_input_demo/number_input.dart';
+
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
+
+import '../timings_editor_demo/timings_editor_view.dart';
 
 class SizeAndDurationEditor extends StatefulWidget {
   const SizeAndDurationEditor({super.key});
