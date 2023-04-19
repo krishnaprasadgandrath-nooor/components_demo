@@ -1,10 +1,9 @@
-import 'package:components_demo/pong_demo/pong_screen.dart';
+import 'package:components_demo/reflect_demo/reflect_demo.dart';
+import 'package:components_demo/text_clip_demo/text_clip_demo.dart';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'demo_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,8 +23,8 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      // home: PongDemo(),
-      home: const ComponentsHome(),
+      home: const TextClipDemoScreen(),
+      // home: const ComponentsHome(),
     ));
   }
 }

@@ -1,45 +1,44 @@
 // demo_home.dart
 
-import 'c_slider_demo/c_slider_demo.dart';
-import 'canvas_vertices_demo/canvas_vertices_demo.dart';
-import 'clip_animation_demo.dart';
-import 'colorful_loader/colorful_loader_Demo.dart';
-import 'connected_nodes_demo/connected_nodes_demo.dart';
-import 'decoration_editor.dart/decoration_editor_screen.dart';
-import 'expanding_image_gallery/expanding_image_screen.dart';
-import 'flow_demo/flow_demo_screen.dart';
-import 'gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
-import 'honey_comb_tiles/honey_comb_images_demo.dart';
-import 'int_video_views/int_video_screen.dart';
-import 'interactive__yt_video_demo/simple_yt_controls.dart';
-import 'interactive_video_demo/interactive_video_demo.dart';
-import 'mouse_clip_demo/animated_bezier_demo.dart';
-import 'mouse_clip_demo/mouse_clip_screen.dart';
-import 'pong_demo/pong_screen.dart';
-import 'timings_editor_demo/timings_editor_screen.dart';
-import 'web_demo/web_demo_screen.dart';
+import 'package:components_demo/reflect_demo/reflect_demo.dart';
 import 'package:flutter/material.dart';
+
 import 'animated_switch_demo/animated_switch_screen.dart';
 import 'audio_player_demo/audio_player_demo.dart';
 import 'binary_tree_problems/btree_demo_screen.dart';
 import 'binary_tree_problems/triangle_demo_screen.dart';
+import 'c_slider_demo/c_slider_demo.dart';
+import 'canvas_vertices_demo/canvas_vertices_demo.dart';
+import 'clip_animation_demo.dart';
+import 'colorful_loader/colorful_loader_Demo.dart';
 import 'comp_place_holder.dart';
+import 'connected_nodes_demo/connected_nodes_demo.dart';
+import 'decoration_editor.dart/decoration_editor_screen.dart';
 import 'device_info_web/device_info_web_demo_screen.dart';
 import 'dynamic_grid_demo/dynamic_grid_demo.dart';
 import 'expandable_card_demo/expansion_card_screen.dart';
+import 'expanding_image_gallery/expanding_image_screen.dart';
 import 'filp_card_demo/flip_card_screen.dart';
 import 'filter_element_tile_demo.dart/filter_element_screen.dart';
 import 'filter_pages_banner_demo/filter_pages_banner_screen.dart';
+import 'flow_demo/flow_demo_screen.dart';
 import 'future_provider_demo/future_provider_demo.dart';
+import 'gesture_detector_behavior_demo/gesture_detector_demo_screen.dart';
 import 'graphx_fun_demo/graphx_fun_demo.dart';
+import 'honey_comb_tiles/honey_comb_images_demo.dart';
 import 'index_page_list_tile_demo/index_list_tile_screen.dart';
 import 'inherited_widget_demo/inherited_widget_base_screen.dart';
 import 'inherited_widget_variant_demo/inherited_widget_base_screen_variabt.dart';
+import 'int_video_views/int_video_screen.dart';
 import 'interactive__yt_video_demo/interactive_yt_video_screen.dart';
+import 'interactive__yt_video_demo/simple_yt_controls.dart';
+import 'interactive_video_demo/interactive_video_demo.dart';
 import 'interfaces_demo/vehicles_demo_screen.dart';
-import 'isolate_bytes_demo/isolate_network_call_demo_screen.dart';
 import 'isolates_demo/isolates_demo_screen.dart';
+import 'mouse_clip_demo/animated_bezier_demo.dart';
+import 'mouse_clip_demo/mouse_clip_screen.dart';
 import 'particle_deflect_demo/particle_deflect_demo.dart';
+import 'pong_demo/pong_screen.dart';
 import 'quill_custsomised_toolbar_demo/animations_screen.dart';
 import 'quill_custsomised_toolbar_demo/matrix_transformation_demo.dart';
 import 'quill_custsomised_toolbar_demo/quill_toolbar_screen.dart';
@@ -50,10 +49,13 @@ import 'search_highlight_demo/search_highlight_screen.dart';
 import 'selective_provider/custom_provider_demo.dart';
 import 'shadow_demo.dart';
 import 'sharingan_demo/sharingan_home.dart';
+import 'simple_list_anim_demo/simple_list_anim_demo.dart';
 import 'sliver_demo/sliver_demo_screen.dart';
 import 'state_notifier_demo/state_notifier_demo_screen.dart';
 import 'stream_provider_demo/stream_provider_demo.dart';
+import 'timings_editor_demo/timings_editor_screen.dart';
 import 'utils/default_appbar.dart';
+import 'web_demo/web_demo_screen.dart';
 
 class ComponentsHome extends StatefulWidget {
   const ComponentsHome({super.key});
@@ -65,6 +67,8 @@ class ComponentsHome extends StatefulWidget {
 class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
+    // "Simple List Anim Demo": SimpleListAnimDemo(),
+    'ReflectionImage Demo': ReflectionImageDemo(),
     "Shadow Demo": const ShadowDemo(),
     "Flow Demo": const FlowDemo(),
     "Pong Demo": const PongDemo(),
