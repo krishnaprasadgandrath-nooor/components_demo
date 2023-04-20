@@ -1,5 +1,6 @@
 // demo_home.dart
 
+import 'package:components_demo/offset_editor/offset_editor_screen.dart';
 import 'package:components_demo/reflect_demo/reflect_demo.dart';
 import 'package:flutter/material.dart';
 
@@ -68,6 +69,7 @@ class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
     // "Simple List Anim Demo": SimpleListAnimDemo(),
+    'Offset Editor Demo': const OffsetEditorScreen(),
     'ReflectionImage Demo': ReflectionImageDemo(),
     "Shadow Demo": const ShadowDemo(),
     "Flow Demo": const FlowDemo(),

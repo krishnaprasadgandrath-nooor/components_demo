@@ -5,6 +5,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'demo_home.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,8 +25,8 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const TextClipDemoScreen(),
-      // home: const ComponentsHome(),
+      // home: const TextClipDemoScreen(),
+      home: const ComponentsHome(),
     ));
   }
 }
