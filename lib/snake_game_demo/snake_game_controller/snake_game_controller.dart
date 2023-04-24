@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -14,12 +15,14 @@ class SnakeController extends SnakeControllerBase {
     _snake = snake ?? SimpleSnake(headPos: const SOffset(3, 4), unitSize: unitSize, stageSize: stageSize);
     _stageSize = stageSize;
     initTimer();
+    spanFood();
   }
 
   ///Fields
   late final BaseSnake _snake;
   late final Size _stageSize;
   Timer? _updateTimer;
+  SOffset? _foodPos;
 
   ///Getters
   @override
@@ -29,16 +32,22 @@ class SnakeController extends SnakeControllerBase {
   Size get stageSize => _stageSize;
 
   @override
-  void changeSnakeDirection(SDirection direction) => snake.changeDirection(direction);
-
-  @override
   Timer? get gameUpdater => _updateTimer;
 
   @override
   int get snakeLength => _snake.length;
 
   @override
-  void moveSnake() => snake.move();
+  SOffset? get foodPos => _foodPos;
+
+  @override
+  void changeSnakeDirection(SDirection direction) => snake.changeDirection(direction);
+
+  @override
+  void moveSnake() {
+    checkSnakeEating();
+    snake.move();
+  }
 
   @override
   void pause() {
@@ -64,5 +73,25 @@ class SnakeController extends SnakeControllerBase {
       moveSnake();
       notifyListeners();
     });
+  }
+
+  @override
+  void spanFood() {
+    final x = Random().nextInt(stageSize.width.toInt()).toDouble();
+    final y = Random().nextInt(stageSize.height.toInt()).toDouble();
+    _foodPos = SOffset(x, y);
+    notifyListeners();
+  }
+
+  @override
+  void checkSnakeEating() {
+    if (foodPos == null) return;
+    if ((snake.headPosition.x - foodPos!.x).abs() < snake.unitSize &&
+        (snake.headPosition.y - foodPos!.y).abs() < snake.unitSize) {
+      snake.eat();
+      _foodPos = null;
+      Future.delayed(const Duration(milliseconds: 200), spanFood);
+      notifyListeners();
+    }
   }
 }

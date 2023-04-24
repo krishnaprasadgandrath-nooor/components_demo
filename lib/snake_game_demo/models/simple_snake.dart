@@ -69,10 +69,11 @@ class SimpleSnake extends BaseSnake {
 
   @override
   void move() {
-    SOffset prePartOff =  _bodyParts.first.clone();
+    SOffset prePartOff = _bodyParts.first.clone();
 
     ///Updating head
     _bodyParts[0] = _bodyParts[0] + (direction.nextOffset * unitSize);
+    checkEdges();
     SOffset curOffset;
 
     ///Updating bodyParts
@@ -97,5 +98,15 @@ class SimpleSnake extends BaseSnake {
   @override
   void reset({int length = 3, SOffset headPos = const SOffset(3, 4)}) {
     initSnake(length, headPos);
+  }
+
+  void checkEdges() {
+    final headPos = _bodyParts.first;
+    if (headPos.x < 0 || headPos.x > stageSize.width) {
+      _bodyParts[0] = SOffset(headPos.x < 0 ? stageSize.width : 0, headPos.y);
+    }
+    if (headPos.y < 0 || headPos.y > stageSize.height) {
+      _bodyParts[0] = SOffset(headPos.x, headPos.y < 0 ? stageSize.height : 0);
+    }
   }
 }

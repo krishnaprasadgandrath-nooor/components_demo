@@ -58,16 +58,18 @@ class _SnakeGameDemoState extends State<SnakeGameDemo> {
       body: SizedBox.expand(
         child: Center(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             RawKeyboardListener(
+              autofocus: true,
               focusNode: stageFocusNode,
               onKey: handleKeyEvent,
               child: SizedBox(
                 height: 300,
                 width: 300,
                 child: Stack(
+                  clipBehavior: Clip.hardEdge,
                   children: [
                     ///Stage
                     DecoratedBox(
@@ -94,7 +96,18 @@ class _SnakeGameDemoState extends State<SnakeGameDemo> {
                                     height: unitSize,
                                   ),
                                 )))
-                            .toList()
+                            .toList(),
+                        if (snakeGameController.foodPos != null)
+                          Positioned(
+                              left: snakeGameController.foodPos!.x,
+                              top: snakeGameController.foodPos!.y,
+                              child: DecoratedBox(
+                                decoration: const BoxDecoration(color: Colors.white),
+                                child: SizedBox(
+                                  height: unitSize,
+                                  width: unitSize,
+                                ),
+                              ))
                       ],
                     )
                     /*    },
