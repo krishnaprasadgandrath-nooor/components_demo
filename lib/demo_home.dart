@@ -2,6 +2,7 @@
 
 import 'package:components_demo/dynamic_font_demo/dynamic_font_screen.dart';
 import 'package:components_demo/misc/discrete_path_demo.dart';
+import 'package:components_demo/misc/my_render_object.dart';
 import 'package:components_demo/offset_editor/offset_editor_screen.dart';
 import 'package:components_demo/reflect_demo/reflect_demo.dart';
 import 'package:components_demo/snake_game_demo/snake_game_screen.dart';
@@ -72,6 +73,7 @@ class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
     // "Simple List Anim Demo": SimpleListAnimDemo(),
+    'My Render Object Demo': const MyRenderObjectScreen(),
     'Snake Game Demo': const SnakeGameDemo(),
     'Non Continous PAth Demo': const DiscretePathDemo(),
     'Dynamic Font Demo': const DynamicFontScreen(),
