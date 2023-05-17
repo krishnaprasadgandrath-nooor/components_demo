@@ -173,9 +173,9 @@ class TimingsEditorState extends State<TimingsEditor> {
     }
   }
 
-  String _formatInputValue(int value) {
-    return value.toString();
-  }
+  // String _formatInputValue(int value) {
+  //   return value.toString();
+  // }
 }
 
 class _CustomTimeEditField extends StatelessWidget {
@@ -186,7 +186,6 @@ class _CustomTimeEditField extends StatelessWidget {
   final void Function() onIncreased;
   final void Function() onDecreased;
   const _CustomTimeEditField({
-    super.key,
     required this.value,
     required this.onChanged,
     required this.isAtMinimun,

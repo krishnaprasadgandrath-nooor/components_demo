@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 class StaticOne {
   StaticOne() {
-    print("Object Created  ${hashCode}");
+    log("Object Created  $hashCode");
   }
 }
 

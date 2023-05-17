@@ -24,16 +24,16 @@ extension CompTypeUtil on CompType {
 
 class SimpleComponent {
   final String id;
-  final Duration start_time;
-  final Duration end_time;
+  final Duration startTime;
+  final Duration endtime;
   final CompType type;
   final dynamic data;
   final Rect rect;
   final bool pauseOnDisplay;
   SimpleComponent({
     required this.id,
-    required this.start_time,
-    required this.end_time,
+    required this.startTime,
+    required this.endtime,
     required this.type,
     required this.data,
     required this.rect,
@@ -42,8 +42,8 @@ class SimpleComponent {
 
   SimpleComponent copyWith({
     String? id,
-    Duration? start_time,
-    Duration? end_time,
+    Duration? startTime,
+    Duration? endTime,
     CompType? type,
     dynamic data,
     Rect? rect,
@@ -51,8 +51,8 @@ class SimpleComponent {
   }) {
     return SimpleComponent(
       id: id ?? this.id,
-      start_time: start_time ?? this.start_time,
-      end_time: end_time ?? this.end_time,
+      startTime: startTime ?? this.startTime,
+      endtime: endTime ?? endtime,
       type: type ?? this.type,
       data: data ?? this.data,
       rect: rect ?? this.rect,
@@ -63,8 +63,8 @@ class SimpleComponent {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'start_time': start_time.toHHMMSS,
-      'end_time': end_time.toHHMMSS,
+      'start_time': startTime.toHHMMSS,
+      'end_time': endtime.toHHMMSS,
       'type': type.name,
       'data': data,
       'rect': rect.toLTWH,
@@ -75,8 +75,8 @@ class SimpleComponent {
   factory SimpleComponent.fromMap(Map<String, dynamic> map) {
     return SimpleComponent(
       id: map['id'] ?? '',
-      start_time: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
-      end_time: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
+      startTime: DurationParser.fromHHMMSS(map['start_time']) ?? Duration.zero,
+      endtime: DurationParser.fromHHMMSS(map['end_time']) ?? Duration.zero,
       type: CompTypeUtil.fromName(map['type']),
       data: map['data'] ?? '',
       rect: RectParser.fromLTWH(map['rect']),
@@ -90,7 +90,7 @@ class SimpleComponent {
 
   @override
   String toString() {
-    return 'SimpleComponent(id: $id, start_time: $start_time, end_time: $end_time, type: $type, data: $data, pauseOnDisplay : $pauseOnDisplay)';
+    return 'SimpleComponent(id: $id, start_time: $startTime, end_time: $endtime, type: $type, data: $data, pauseOnDisplay : $pauseOnDisplay)';
   }
 
   @override
@@ -99,8 +99,8 @@ class SimpleComponent {
 
     return other is SimpleComponent &&
         other.id == id &&
-        other.start_time == start_time &&
-        other.end_time == end_time &&
+        other.startTime == startTime &&
+        other.endtime == endtime &&
         other.type == type &&
         other.data == data &&
         other.pauseOnDisplay == pauseOnDisplay;
@@ -109,8 +109,8 @@ class SimpleComponent {
   @override
   int get hashCode {
     return id.hashCode ^
-        start_time.hashCode ^
-        end_time.hashCode ^
+        startTime.hashCode ^
+        endtime.hashCode ^
         type.hashCode ^
         data.hashCode ^
         pauseOnDisplay.hashCode;

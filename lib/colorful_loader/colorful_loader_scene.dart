@@ -93,7 +93,7 @@ class BubblePreloader extends GSprite {
       bubble.y = Math.randomRange(-10, h + 10);
       if (Math.randomBool()) {
         var blur = Math.randomRange(1, 2);
-        bubble.filters = [GBlurFilter(blur, blur), GlowFilter(2.0, 2.0, Color.fromARGB(255, 255, 255, 255))];
+        bubble.filters = [GBlurFilter(blur, blur), GlowFilter(2.0, 2.0, const Color.fromARGB(255, 255, 255, 255))];
       }
       bubblesContainer.addChild(bubble);
     });

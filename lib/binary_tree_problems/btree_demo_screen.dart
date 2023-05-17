@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -118,26 +120,26 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
   void initializeTree() {
     bTree = BTree([12, 34, 56 /*, 23, 45, 67, 887, 234, 1, 2, 43, 23, 13, 7*/]);
 
-    print("Elements are : ${bTree.elements}");
-    print("Tree Visualizer Rows : \n");
+    log("Elements are : ${bTree.elements}");
+    log("Tree Visualizer Rows : \n");
     List<List> treeDepthList = bTree.depthList;
     for (List row in treeDepthList) {
       for (var element in row) {
-        print(element);
+        log(element);
       }
-      print("\n");
+      log("\n");
     }
 
     // Map<int, int> nodeHeights = {};
     // for (var element in bTree.nodes) {
     //   nodeHeights[element.value] = element.height;
     // }
-    //   print("Heights Map of the tree is ${nodeHeights}");
+    //   log("Heights Map of the tree is ${nodeHeights}");
     //   Map<int, int> nodeBalances = {};
     //   for (var element in bTree.nodes) {
     //     nodeBalances[element.value] = element.balanceFactor;
     //   }
-    //   print("Balance Map of the tree is ${nodeBalances}");
+    //   log("Balance Map of the tree is ${nodeBalances}");
     // }
   }
 
@@ -154,15 +156,15 @@ class _TreeVisualizerScreenState extends State<TreeVisualizerScreen> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(5.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: TextField(
                           controller: controller,
                           inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                          decoration: InputDecoration(border: OutlineInputBorder()),
+                          decoration: const InputDecoration(border: OutlineInputBorder()),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
                             onPressed: () => Navigator.pop(context, int.tryParse(controller.text)),
                             child: const Text("Insert")),

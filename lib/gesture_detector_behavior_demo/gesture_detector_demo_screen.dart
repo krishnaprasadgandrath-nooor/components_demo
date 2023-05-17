@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -24,16 +26,16 @@ class _GestureDetectorDemoState extends State<GestureDetectorDemo> {
               padding: const EdgeInsets.all(2.0),
               child: Listener(
                 onPointerDown: (event) {
-                  print("Pointer Down");
+                  log("Pointer Down");
                 },
                 onPointerCancel: (details) {
-                  print("POINTER CANCEL");
+                  log("POINTER CANCEL");
                 },
                 onPointerMove: (event) {
-                  print("Pointer moved");
+                  log("Pointer moved");
                 },
                 onPointerUp: (event) {
-                  print("Pointer UP");
+                  log("Pointer UP");
                 },
                 child: ScrollConfiguration(
                   behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -52,7 +54,7 @@ class _GestureDetectorDemoState extends State<GestureDetectorDemo> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       "$index",
-                                      style: TextStyle(color: Colors.white),
+                                      style: const TextStyle(color: Colors.white),
                                     ),
                                   ),
                                 ),

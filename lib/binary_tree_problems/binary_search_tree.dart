@@ -1,10 +1,7 @@
 import 'package:components_demo/binary_tree_problems/tree_models.dart';
 
 class BSTree extends Tree {
-  @override
-  Node? root;
-
-  BTree(List<int>? args) {
+  BSTree(List<int>? args) {
     if (args != null) {
       insertAll(args);
     }
@@ -26,20 +23,23 @@ class BSTree extends Tree {
   Iterable<Node> get nodes => root?.nodes ?? [];
 
   @override
-  bool remove(int data) {
+  bool remove(int item) {
     // TODO: implement remove
     throw UnimplementedError();
   }
 
+  @override
   void insert(int item) {
     Node node = Node(value: item);
     if (root == null) {
-      root ??= node;
+      root = node;
+      // root ??= node;
     } else {
       _insert(root!, node);
     }
   }
 
+  @override
   void insertAll(Iterable<int> values) {
     for (var element in values) {
       insert(element);

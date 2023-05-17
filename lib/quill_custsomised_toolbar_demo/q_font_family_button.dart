@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
+// ignore: implementation_imports
 import 'package:flutter_quill/src/widgets/toolbar/quill_font_family_button.dart';
 
 final fontFamilies = {

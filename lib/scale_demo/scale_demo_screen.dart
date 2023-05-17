@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +33,7 @@ class _ScaleDemoScreenState extends State<ScaleDemoScreen> {
                       initScale = scaleValue;
                     },
                     onScaleUpdate: (details) {
-                      print("Scale :" + details.scale.toString());
+                      log("Scale :${details.scale}");
                       updateScale = initScale * details.scale;
                     },
                     onScaleEnd: (details) {

@@ -38,7 +38,7 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
             transform: Matrix4.rotationY(math.pi * 180 * _flipController.value),
             child: child,
           ),
-          child: SizedBox(
+          child: const SizedBox(
             height: 300,
             width: 300,
             child: Card(
@@ -54,7 +54,7 @@ class _FlipCardState extends State<FlipCard> with SingleTickerProviderStateMixin
   Widget flipButton() {
     return Align(
       alignment: Alignment.bottomRight,
-      child: IconButton(onPressed: startFlip, icon: Icon(Icons.shuffle)),
+      child: IconButton(onPressed: startFlip, icon: const Icon(Icons.shuffle)),
     );
   }
 

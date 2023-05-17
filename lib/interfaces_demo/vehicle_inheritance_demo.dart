@@ -55,15 +55,19 @@ mixin Reset on VehicleMovement {
 
 class Bike extends Vehicle implements VehicleBluePrint {
   @override
+  // ignore: overridden_fields
   IconData icon = Icons.pedal_bike;
 
   @override
+  // ignore: overridden_fields
   bool isSteeringControl = false;
 
   @override
+  // ignore: overridden_fields
   int noOfGears = 6;
 
   @override
+  // ignore: overridden_fields
   int noOfWheels = 2;
 
   @override
@@ -79,15 +83,19 @@ class Bike extends Vehicle implements VehicleBluePrint {
 
 class Car extends Vehicle implements VehicleBluePrint {
   @override
+  // ignore: overridden_fields
   IconData icon = Icons.car_crash;
 
   @override
+  // ignore: overridden_fields
   bool isSteeringControl = true;
 
   @override
+  // ignore: overridden_fields
   int noOfGears = 6;
 
   @override
+  // ignore: overridden_fields
   int noOfWheels = 4;
 
   @override

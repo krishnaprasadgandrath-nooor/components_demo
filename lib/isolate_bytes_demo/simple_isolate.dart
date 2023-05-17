@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:isolate';
 import 'package:random_string/random_string.dart';
@@ -6,17 +7,17 @@ import 'package:random_string/random_string.dart';
 late Isolate isolate;
 
 main() {
-  print("running dart program");
+  log("running dart program");
   createNewIsolate();
 }
 
 void createNewIsolate() {
   ReceivePort receivePort = ReceivePort();
-  Isolate.spawn(isolateMain, receivePort.sendPort).then((_isolate) {
-    isolate = _isolate;
-    print('isolate: $isolate');
+  Isolate.spawn(isolateMain, receivePort.sendPort).then((isolate) {
+    isolate = isolate;
+    log('isolate: $isolate');
     receivePort.listen((messages) {
-      print('new message from ISOLATE $messages');
+      log('new message from ISOLATE $messages');
     });
   });
 }

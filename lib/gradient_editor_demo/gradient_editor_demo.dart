@@ -9,7 +9,7 @@ class GradientEditorScreen extends StatefulWidget {
 }
 
 class _GradientEditorScreenState extends State<GradientEditorScreen> {
-  Gradient _gradient = LinearGradient(colors: [Colors.black, Colors.white]);
+  Gradient _gradient = const LinearGradient(colors: [Colors.black, Colors.white]);
 
   @override
   Widget build(BuildContext context) {

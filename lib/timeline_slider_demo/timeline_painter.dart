@@ -20,7 +20,7 @@ class TimelinePainter extends CustomPainter {
       canvas.drawPath(path, paint);
       if (i % 100 == 0) {
         TextSpan span =
-            TextSpan(text: "${Duration(seconds: (i / 100).toInt()).toMMSS}", style: TextStyle(fontSize: 10.0));
+            TextSpan(text: Duration(seconds: i ~/ 100).toMMSS, style: const TextStyle(fontSize: 10.0));
         TextPainter textPainter = TextPainter(text: span, textDirection: TextDirection.ltr);
         textPainter.layout(maxWidth: 100, minWidth: 0);
         textPainter.paint(canvas, Offset(i, 12));

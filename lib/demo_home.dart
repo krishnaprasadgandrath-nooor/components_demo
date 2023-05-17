@@ -76,7 +76,7 @@ class _ComponentsHomeState extends State<ComponentsHome> {
     'Non Continous PAth Demo': const DiscretePathDemo(),
     'Dynamic Font Demo': const DynamicFontScreen(),
     'Offset Editor Demo': const OffsetEditorScreen(),
-    'ReflectionImage Demo': ReflectionImageDemo(),
+    'ReflectionImage Demo': const ReflectionImageDemo(),
     "Shadow Demo": const ShadowDemo(),
     "Flow Demo": const FlowDemo(),
     "Pong Demo": const PongDemo(),

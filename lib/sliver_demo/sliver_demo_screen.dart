@@ -122,7 +122,7 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
                               child: Text(
                                 "$index",
                                 // "${selectedValues.elementAt((index))}",
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
@@ -169,13 +169,11 @@ class _SliverDemoScreenState extends State<SliverDemoScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: ["Mail", "Export", "Filter Mode"]
-                    .map((e) => Container(
-                          child: Center(
-                            heightFactor: 1.2,
-                            widthFactor: 2,
-                            child: Text(e),
-                          ),
-                        ))
+                    .map((e) => Center(
+                      heightFactor: 1.2,
+                      widthFactor: 2,
+                      child: Text(e),
+                    ))
                     .toList(),
               ),
             ),

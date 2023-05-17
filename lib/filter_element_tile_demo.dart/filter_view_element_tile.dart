@@ -39,7 +39,7 @@ class FilterElementTile extends StatelessWidget {
                 ),
                 Icon(icon)
               ],
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               title,
               const Spacer(),
               GestureDetector(onTap: goTo, child: trailing),
@@ -50,7 +50,7 @@ class FilterElementTile extends StatelessWidget {
           ),
           if (showAuthor)
             Padding(
-              padding: EdgeInsets.only(top: 5.0, left: 6.0),
+              padding: const EdgeInsets.only(top: 5.0, left: 6.0),
               child: author,
             )
         ],

@@ -1,7 +1,8 @@
-import 'package:components_demo/decoration_editor.dart/d_editor_utils.dart';
-import 'package:components_demo/decoration_editor.dart/decoration_enums.dart';
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
+
+import 'package:components_demo/decoration_editor.dart/d_editor_utils.dart';
+import 'package:components_demo/decoration_editor.dart/decoration_enums.dart';
 
 final Map<String, AlignmentGeometry> alignmentValues = {
   "topLeft": Alignment.topLeft,
@@ -134,8 +135,8 @@ class _GradientEditorState extends State<GradientEditor> {
                   child: ListView.builder(
                     itemCount: oGradient.colors.length,
                     itemBuilder: (context, index) {
-                      final _color = oGradient.colors[index];
-                      final _stop = oGradient.stops?[index] ?? 0;
+                      final color0 = oGradient.colors[index];
+                      final stop = oGradient.stops?[index] ?? 0;
 
                       return Padding(
                         padding: const EdgeInsets.all(2.0),
@@ -146,14 +147,14 @@ class _GradientEditorState extends State<GradientEditor> {
                               Expanded(
                                   child: InkWell(
                                 onTap: () async {
-                                  final color = await DEditorUtils.showColorPicker(context, color: _color);
+                                  final color = await DEditorUtils.showColorPicker(context, color: color0);
                                   if (color != null) {
                                     updateLinearGradient(
                                         colors: List.from(oGradient.colors)..replaceRange(index, index + 1, [color]));
                                   }
                                 },
                                 child: DecoratedBox(
-                                  decoration: BoxDecoration(color: _color, border: Border.all(color: Colors.black)),
+                                  decoration: BoxDecoration(color: color0, border: Border.all(color: Colors.black)),
                                   child: const SizedBox.expand(),
                                 ),
                               )),
@@ -161,23 +162,23 @@ class _GradientEditorState extends State<GradientEditor> {
                                 width: 100.0,
                                 child: NumberInputWithIncrementDecrement(
                                   controller: TextEditingController(),
-                                  initialValue: _stop,
+                                  initialValue: stop,
                                   max: 1.0,
                                   min: 0.0,
                                   incDecFactor: 0.1,
                                   onIncrement: (newValue) {
-                                    final _stop = newValue.toDouble();
+                                    final stop = newValue.toDouble();
                                     updateLinearGradient(
                                         stops: List<double>.from(oGradient.stops ??
                                             List<double>.generate(oGradient.colors.length, (index) => index * 0.1)
-                                          ..replaceRange(index, index + 1, [_stop])));
+                                          ..replaceRange(index, index + 1, [stop])));
                                   },
                                   onDecrement: (newValue) {
-                                    final _stop = newValue.toDouble();
+                                    final stop = newValue.toDouble();
                                     updateLinearGradient(
                                         stops: List<double>.from(oGradient.stops ??
                                             List<double>.generate(oGradient.colors.length, (index) => index * 0.1)
-                                          ..replaceRange(index, index + 1, [_stop])));
+                                          ..replaceRange(index, index + 1, [stop])));
                                   },
                                 ),
                               ),
@@ -209,11 +210,11 @@ class _GradientEditorState extends State<GradientEditor> {
   }
 
   Widget sweepGradientEditor() {
-    return Placeholder();
+    return const Placeholder();
   }
 
   Widget radialGradientEditor() {
-    return Placeholder();
+    return const Placeholder();
   }
 
   void updateLinearGradient({
@@ -313,7 +314,7 @@ extension DGradTypeUtil on Gradient {
 
 extension AlignmentGeometryUtil on AlignmentGeometry {
   Offset get toOffset {
-    final align = this.resolve(TextDirection.ltr);
+    final align = resolve(TextDirection.ltr);
     return Offset(align.x, align.y);
   }
 }

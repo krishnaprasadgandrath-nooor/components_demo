@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomShape extends ShapeBorder {
   final double leftEndDiff;
 
-  CustomShape({this.leftEndDiff = 20});
+  const CustomShape({this.leftEndDiff = 20});
   @override
   // TODO: implement dimensions
   EdgeInsetsGeometry get dimensions => EdgeInsets.zero;

@@ -162,9 +162,9 @@ class _SharinganHomeState extends State<SharinganHome> with SingleTickerProvider
   List<Widget> tomoeElements() {
     return [
       Transform.translate(
-        offset: Offset(0, -110),
+        offset: const Offset(0, -110),
         child: RotationTransition(
-          turns: AlwaysStoppedAnimation(270 / 360),
+          turns: const AlwaysStoppedAnimation(270 / 360),
           child: Transform(
             alignment: Alignment.center,
             transform: Matrix4.rotationX(pi),
@@ -179,7 +179,7 @@ class _SharinganHomeState extends State<SharinganHome> with SingleTickerProvider
         ),
       ),
       Transform.translate(
-        offset: pointOnCircle(110, 30, Offset(0, 0)),
+        offset: pointOnCircle(110, 30, const Offset(0, 0)),
         child: RotatedBox(
           quarterTurns: 2,
           child: Transform(

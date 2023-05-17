@@ -87,7 +87,7 @@ class _MatrixTransformDemoState extends State<MatrixTransformDemo> {
             SizedBox(
               height: 50.0,
               child: Row(
-                children: [IconButton(onPressed: resetAll, icon: Icon(Icons.replay))],
+                children: [IconButton(onPressed: resetAll, icon: const Icon(Icons.replay))],
               ),
             )
           ],

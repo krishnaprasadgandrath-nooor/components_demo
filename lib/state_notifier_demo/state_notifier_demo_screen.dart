@@ -27,7 +27,7 @@ class StateNotiferDemoScreen extends ConsumerWidget {
               onPressed: () {
                 ref.read(usersProivder.notifier).removeUser(userList[index].name);
               },
-              icon: Icon(Icons.delete)),
+              icon: const Icon(Icons.delete)),
         ),
       ),
     );
@@ -44,11 +44,11 @@ class StateNotiferDemoScreen extends ConsumerWidget {
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(label: Text("Name")),
+              decoration: const InputDecoration(label: Text("Name")),
             ),
             TextField(
               controller: placeController,
-              decoration: InputDecoration(label: Text("Place")),
+              decoration: const InputDecoration(label: Text("Place")),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -61,7 +61,7 @@ class StateNotiferDemoScreen extends ConsumerWidget {
                           place: placeController.text.isNotEmpty ? placeController.text : null));
                       Navigator.pop(context);
                     },
-                    child: Text("Add"))
+                    child: const Text("Add"))
               ],
             )
           ],

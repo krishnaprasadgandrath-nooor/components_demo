@@ -3,8 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:components_demo/utils/default_appbar.dart';
-import 'package:flutter/src/rendering/box.dart';
-import 'package:flutter/src/semantics/semantics.dart';
+import 'package:flutter/semantics.dart';
 
 class CustomRenderObjectScreen extends StatefulWidget {
   const CustomRenderObjectScreen({super.key});
@@ -80,7 +79,8 @@ class _CustomRenderObjectScreenState extends State<CustomRenderObjectScreen> {
 class CustomMessageRender extends LeafRenderObjectWidget {
   final String message;
   final String sentAt;
-  CustomMessageRender({
+  const CustomMessageRender({
+    super.key,
     required this.message,
     required this.sentAt,
   });

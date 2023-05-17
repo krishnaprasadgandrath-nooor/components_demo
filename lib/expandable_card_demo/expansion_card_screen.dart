@@ -28,19 +28,17 @@ class _ExpandableCardScreenState extends State<ExpandableCardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar.appBar(context, "Expandable Card Demo"),
-      body: Container(
-        child: Column(children: [
-          ExpandableCard(
-              title: "Tabs",
-              children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-                  .map((e) => Container(
-                        height: e * 30,
-                        color: Colors.accents[e],
-                      ))
-                  .toList()),
-          const ExpansionTile(title: Text("Hello")),
-        ]),
-      ),
+      body: Column(children: [
+        ExpandableCard(
+            title: "Tabs",
+            children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                .map((e) => Container(
+                      height: e * 30,
+                      color: Colors.accents[e],
+                    ))
+                .toList()),
+        const ExpansionTile(title: Text("Hello")),
+      ]),
     );
   }
 }

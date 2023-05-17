@@ -73,7 +73,7 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen> with Single
                       ]),
                   child: Column(
                     children: [
-                      Expanded(
+                      const Expanded(
                           child: SizedBox.expand(
                               // child: _flipAnim.value > 0.5 ?
                               //  Center(child: Container(margin: EdgeInsets.all(8.0), color: Colors.black))
@@ -102,7 +102,7 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen> with Single
                             ? _animController.reverse()
                             : _animController.forward();
                       },
-                      icon: Icon(Icons.replay))
+                      icon: const Icon(Icons.replay))
                 ],
               ),
             ),

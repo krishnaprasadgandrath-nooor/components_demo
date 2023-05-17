@@ -20,7 +20,7 @@ class NumberInput extends StatefulWidget {
   });
 
   @override
-  _NumberInputState createState() => _NumberInputState();
+  State<NumberInput> createState() => _NumberInputState();
 }
 
 class _NumberInputState<T> extends State<NumberInput> {
@@ -110,7 +110,7 @@ class _NumberInputState<T> extends State<NumberInput> {
                     onLongPressEnd: (_) {
                       _stopTimer();
                     },
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                   ),
                 ),
                 MouseRegion(

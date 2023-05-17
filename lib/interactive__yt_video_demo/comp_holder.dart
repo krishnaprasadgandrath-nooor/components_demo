@@ -40,7 +40,7 @@ class _YtCompHolderState extends State<YtCompHolder> {
         tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(seconds: 1),
         builder: (context, value, child) => Opacity(opacity: value, child: child),
-        child: PointerInterceptor(child: ConstrainedBox(constraints: BoxConstraints.expand(), child: getCompView())),
+        child: PointerInterceptor(child: ConstrainedBox(constraints: const BoxConstraints.expand(), child: getCompView())),
       ),
     );
   }
@@ -70,7 +70,7 @@ class _YtCompHolderState extends State<YtCompHolder> {
             color: Colors.black,
             child: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.link,
                   color: Colors.orange,
                 ),

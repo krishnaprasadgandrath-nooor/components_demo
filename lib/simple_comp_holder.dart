@@ -12,7 +12,7 @@ class SimpleCompPage extends StatefulWidget {
 }
 
 class _SimpleCompPageState extends State<SimpleCompPage> with SingleTickerProviderStateMixin {
-  final Duration _duration = Duration(minutes: 2);
+  final Duration _duration = const Duration(minutes: 2);
   StreamController<Duration> posStream = StreamController<Duration>();
   late Ticker ticker = Ticker((elapsed) {
     if (elapsed > _duration) {

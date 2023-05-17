@@ -72,7 +72,7 @@ class _ExpandOnHoverState extends State<ExpandOnHover> {
       onEnter: (event) => updateHovered(index),
       onExit: (event) => checkAndRemoveHovered(index),
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         curve: Curves.easeIn,
 
         color: Colors.accents[index],

@@ -2,9 +2,6 @@ import 'package:components_demo/binary_tree_problems/tree_models.dart';
 
 class BTree extends Tree {
   @override
-  Node? root;
-
-  @override
   Iterable<int> get elements => root?.elements ?? [];
 
   @override
@@ -36,7 +33,7 @@ class BTree extends Tree {
   // }
 
   @override
-  bool remove(int data) {
+  bool remove(int item) {
     // TODO: implement remove
     throw UnimplementedError();
   }

@@ -13,7 +13,7 @@ class _MyAnimatedListState extends State<MyAnimatedList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar.appBar(context, "Aniamted List"),
-      body: CustomScrollView(),
+      body: const CustomScrollView(),
       //   body: AnimatedListView(
       //     itemCount: 50,
       //     itemExtent: 100.0,

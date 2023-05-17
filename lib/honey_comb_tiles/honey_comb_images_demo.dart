@@ -106,6 +106,7 @@ class _HoneyCombDelegeate extends MultiChildLayoutDelegate {
     this.hSpacing = 10.0,
     this.vSpacing = 10.0,
     this.maxHCount = 2,
+    // ignore: unused_element
     this.vExtent,
   });
 
@@ -157,7 +158,6 @@ class _HoneyCombDelegeate extends MultiChildLayoutDelegate {
 class HoneyCombTileClip extends CustomClipper<Path> {
   @override
   getClip(Size size) {
-    // TODO: implement getClip
     Path path = Path();
     path.moveTo(size.width / 2, 0);
     path.lineTo(size.width, size.height * 0.25);

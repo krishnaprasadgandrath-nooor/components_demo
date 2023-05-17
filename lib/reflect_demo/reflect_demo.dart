@@ -16,7 +16,7 @@ class WidgetCopier extends StatefulWidget {
 }
 
 class _WidgetCopierState extends State<WidgetCopier> {
-  GlobalKey _widgetKey = GlobalKey();
+  final GlobalKey _widgetKey = GlobalKey();
 
   @override
   void initState() {
@@ -40,6 +40,8 @@ class _WidgetCopierState extends State<WidgetCopier> {
 }
 
 class ReflectionImageDemo extends StatefulWidget {
+  const ReflectionImageDemo({super.key});
+
   @override
   State<ReflectionImageDemo> createState() => _ReflectionImageDemoState();
 }
@@ -91,7 +93,7 @@ class _ReflectionImageDemoState extends State<ReflectionImageDemo> {
                   });
                 }),
             const SizedBox(height: 50),
-            SizedBox(height: 200, width: 200, child: _image != null ? _image! : ColoredBox(color: Colors.red)),
+            SizedBox(height: 200, width: 200, child: _image != null ? _image! : const ColoredBox(color: Colors.red)),
             _image != null
                 ? ShaderMask(
                     shaderCallback: (Rect bounds) {

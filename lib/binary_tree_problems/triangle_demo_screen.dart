@@ -35,8 +35,8 @@ class _TriangleArtScreenState extends State<TriangleArtScreen> {
       appBar: DefaultAppBar.appBar(context, "Triangle Art Screen"),
       body: Center(
         child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Container(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: CustomPaint(

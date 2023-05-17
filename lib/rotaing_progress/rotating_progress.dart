@@ -56,13 +56,13 @@ class _RotatingProgressState extends State<RotatingProgress> with SingleTickerPr
       animation: rotatTween,
       builder: (context, child) => Transform(
         transform: Matrix4.rotationY(rotatTween.value * math.pi * 2),
-        origin: Offset(10, 0),
+        origin: const Offset(10, 0),
         // scale: _animController.value,
         alignment: Alignment.centerRight,
         child: child,
       ),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             borderRadius: BorderRadius.horizontal(left: Radius.circular(10.0)),
             // boxShadow: [
             //   BoxShadow(offset: Offset(-5, 2), color: Colors.red.withAlpha(50), blurRadius: 5.0, spreadRadius: 5.0)
@@ -80,7 +80,7 @@ class _RotatingProgressState extends State<RotatingProgress> with SingleTickerPr
                   color: Colors.yellow,
                 ),
               ),
-              Center(
+              const Center(
                   child: //isRedFront
                       //?
                       Text("Front")

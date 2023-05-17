@@ -28,9 +28,9 @@ class DynamicGridScreen extends StatefulWidget {
 }
 
 class _DynamicGridScreenState extends State<DynamicGridScreen> {
-  List<String> _imagesList = [];
+  final List<String> _imagesList = [];
 
-  TextEditingController _copyController = TextEditingController();
+  final TextEditingController _copyController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class _DynamicGridScreenState extends State<DynamicGridScreen> {
       floatingActionButton: InkWell(
         onTap: showCopyDialog,
         onLongPress: addImageToList,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -81,14 +81,14 @@ class _DynamicGridScreenState extends State<DynamicGridScreen> {
                 Container(
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(3.0), border: Border.all(color: Colors.grey)),
-                  margin: EdgeInsets.all(
+                  margin: const EdgeInsets.all(
                     3.0,
                   ),
                   child: TextField(
                     controller: _copyController,
                   ),
                 ),
-                ElevatedButton(onPressed: addCopiedText, child: Text("Add"))
+                ElevatedButton(onPressed: addCopiedText, child: const Text("Add"))
               ],
             ),
           ),
@@ -113,14 +113,14 @@ class DyanamicGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Future<Size>> _nSizes = [];
-    source.forEach((element) {
-      _nSizes.add(_calculateImageDimension(element));
-    });
+    List<Future<Size>> nSizes = [];
+    for (var element in source) {
+      nSizes.add(_calculateImageDimension(element));
+    }
 
     return LayoutBuilder(
       builder: (context, konstraints) => FutureBuilder<List<Size>>(
-        future: Future.wait(_nSizes),
+        future: Future.wait(nSizes),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -147,8 +147,8 @@ class DyanamicGridView extends StatelessWidget {
                   if (initImages.isNotEmpty)
                     Container(
                       constraints: initImages.length == 1
-                          ? BoxConstraints.loose(Size(1024, 500))
-                          : BoxConstraints.expand(height: 200),
+                          ? BoxConstraints.loose(const Size(1024, 500))
+                          : const BoxConstraints.expand(height: 200),
                       height: initImages.length == 1
                           ? (snapshot.data![source.indexOf(initImages.first)].width * konstraints.maxWidth) /
                               snapshot.data![source.indexOf(initImages.first)].height
@@ -183,8 +183,8 @@ class DyanamicGridView extends StatelessWidget {
                       int end = start + 3;
                       List<String> items = remainingImages.getRange(start, end).toList();
                       return Container(
-                        constraints: BoxConstraints.expand(height: 200),
-                        margin: EdgeInsets.only(bottom: 3.0),
+                        constraints: const BoxConstraints.expand(height: 200),
+                        margin: const EdgeInsets.only(bottom: 3.0),
                         child: Flex(
                           direction: Axis.horizontal,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -217,15 +217,15 @@ class DyanamicGridView extends StatelessWidget {
   Future<Size> _calculateImageDimension(String url) {
     Completer<Size> completer = Completer();
     Image image;
-    UriData? _uriData = Uri.parse(url).data;
+    UriData? uriData = Uri.parse(url).data;
     if (url.contains('http')) {
       image = Image.network(url);
-    } else if (_uriData?.isBase64 ?? false) {
-      image = Image.memory(_uriData!.contentAsBytes());
+    } else if (uriData?.isBase64 ?? false) {
+      image = Image.memory(uriData!.contentAsBytes());
     } else {
       image = Image.file(File(url));
     }
-    image.image.resolve(ImageConfiguration()).addListener(
+    image.image.resolve(const ImageConfiguration()).addListener(
       ImageStreamListener(
         (ImageInfo image, bool synchronousCall) {
           var myImage = image.image;

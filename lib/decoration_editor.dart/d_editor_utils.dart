@@ -3,7 +3,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class DEditorUtils {
   static Future<Color?> showColorPicker(BuildContext context, {Color? color, Function(Color)? onColorChanged}) async {
-    final _color = await showDialog<Color>(
+    final color1 = await showDialog<Color>(
       context: context,
       builder: (context) => Center(
           child: Card(
@@ -13,7 +13,7 @@ class DEditorUtils {
         ),
       )),
     );
-    return _color;
+    return color1;
   }
 }
 

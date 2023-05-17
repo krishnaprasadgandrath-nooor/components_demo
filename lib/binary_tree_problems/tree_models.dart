@@ -1,7 +1,7 @@
 import 'dart:math';
 
 abstract class Tree {
-  final Node? root;
+  Node? root;
 
   Tree({
     this.root,

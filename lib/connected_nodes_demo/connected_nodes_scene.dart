@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:graphx/graphx.dart';
@@ -69,9 +68,9 @@ class ConnectedNodesScene extends GSprite {
   }
 
   // Eucledian distance formula {distance between two points}
-  double _distance(double x1, double y1, double x2, double y2) {
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-  }
+  // double _distance(double x1, double y1, double x2, double y2) {
+  //   return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+  // }
 
   // Distance gross approximation
   double _distanceFast(double x1, double y1, double x2, double y2, double maxDistance) {

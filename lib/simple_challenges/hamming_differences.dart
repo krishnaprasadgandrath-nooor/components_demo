@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 void main(List<String> args) {
   String first = args.first;
   String second = args.last;
@@ -8,5 +10,5 @@ void main(List<String> args) {
     if (first[i] != second[i]) count++;
   }
   count += maxLength - minLength;
-  print("Hamming Difference is : $count");
+  log("Hamming Difference is : $count");
 }

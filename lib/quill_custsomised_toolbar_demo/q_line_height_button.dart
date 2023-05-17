@@ -61,7 +61,7 @@ class QuillLineHeightButton extends StatefulWidget {
   final VoidCallback? afterButtonPressed;
 
   @override
-  _QuillLineHeightButtonState createState() => _QuillLineHeightButtonState();
+  State<QuillLineHeightButton> createState() => _QuillLineHeightButtonState();
 }
 
 class _QuillLineHeightButtonState extends State<QuillLineHeightButton> {

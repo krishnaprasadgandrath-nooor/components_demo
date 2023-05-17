@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class ZigZagLayoutScreen extends StatelessWidget {
+  const ZigZagLayoutScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class ZigZagLayoutScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         '$e',
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
@@ -29,7 +31,7 @@ class ZigZagLayoutScreen extends StatelessWidget {
 }
 
 class ZigZagLayout extends MultiChildRenderObjectWidget {
-  ZigZagLayout({
+  const ZigZagLayout({
     Key? key,
     required List<Widget> children,
   }) : super(key: key, children: children);

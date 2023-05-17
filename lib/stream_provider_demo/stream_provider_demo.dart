@@ -49,7 +49,7 @@ class StreamProviderScreen extends StatelessWidget {
                     // ),
                     ElevatedButton(
                         onPressed: () {
-                          ref.read(updateProvider.state).state = const Uuid().v1();
+                          ref.read(updateProvider.notifier).state = const Uuid().v1();
                         },
                         child: child)
                   ],

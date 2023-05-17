@@ -61,12 +61,9 @@ class CustomProviderDemoScreen extends ConsumerWidget {
                 }
               }
                   .entries
-                  .map((e) => Container(
-                        // color: Colors.red,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
-                        ),
+                  .map((e) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(onPressed: e.value, child: Text(e.key)),
                       ))
                   .toList(),
             )
@@ -90,7 +87,7 @@ class _ColorWidgetState extends ConsumerState<ColorWidget> {
     Color customProColor = ref.watch(customoProvider.select((value) => value.color));
     // String title = ref.watch(customoProvider.select((value) => value.title));
 
-    print("Color Widget built");
+    debugPrint("Color Widget built");
     return Container(
       height: 200,
       color: Colors.accents[Random().nextInt(Colors.accents.length)],
@@ -112,7 +109,7 @@ class _TitleWidgetState extends ConsumerState<TitleWidget> {
   @override
   Widget build(BuildContext context) {
     String customProTitle = ref.watch(customoProvider.select((value) => value.title));
-    print("Title Widget built");
+    debugPrint("Title Widget built");
     return Container(
       height: 200,
       color: Colors.accents[Random().nextInt(Colors.accents.length)],
@@ -138,7 +135,7 @@ class _CountWidgetState extends ConsumerState<CountWidget> {
   @override
   Widget build(BuildContext context) {
     int customProInt = ref.watch(customoProvider.select((value) => value.randomInt));
-    print("Count Widget built");
+    debugPrint("Count Widget built");
     return Container(
       height: 200,
       color: Colors.accents[Random().nextInt(Colors.accents.length)],

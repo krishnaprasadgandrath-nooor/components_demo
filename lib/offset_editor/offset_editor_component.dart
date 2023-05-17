@@ -73,7 +73,7 @@ class _AlignOffsetEditorState extends State<AlignOffsetEditor> {
                     position = Offset(boxSize / 2, boxSize / 2);
                     notifyChange();
                   }, */
-                  child: ColoredBox(color: Colors.grey.withAlpha(100), child: SizedBox.expand())),
+                  child: ColoredBox(color: Colors.grey.withAlpha(100), child: const SizedBox.expand())),
               Align(
                 alignment: Alignment.topCenter,
                 child: ColoredBox(

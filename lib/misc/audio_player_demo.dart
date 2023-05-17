@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:components_demo/utils/default_appbar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AudioPlayerDemo extends StatefulWidget {
@@ -46,7 +47,9 @@ class _AudioPlayerDemoState extends State<AudioPlayerDemo> {
 
       AudioPlayer().play(source);
     } catch (e) {
-      print("Errot while playing");
+      if (kDebugMode) {
+        print("Errot while playing");
+      }
     }
   }
 }

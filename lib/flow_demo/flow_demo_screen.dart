@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -78,7 +80,7 @@ class _FlowDemoState extends State<FlowDemo> with SingleTickerProviderStateMixin
                                 } else {
                                   _controller.reverse();
                                 }
-                                print("Pressed $e button");
+                                log("Pressed $e button");
                               },
                               icon: Text(
                                 "$e",

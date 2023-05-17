@@ -2,7 +2,6 @@ import 'dart:math' as math;
 import 'dart:ui';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
 
 class FlipCardScreen extends StatefulWidget {
   const FlipCardScreen({super.key});
@@ -79,7 +78,7 @@ class _FlipCardScreenState extends State<FlipCardScreen> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Slider(
               value: _sliderValue,
               min: 0,
