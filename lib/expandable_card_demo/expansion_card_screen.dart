@@ -13,12 +13,12 @@ class ExpandableCardScreen extends StatefulWidget {
 }
 
 class _ExpandableCardScreenState extends State<ExpandableCardScreen> {
-  double _width = 0;
+  // double _width = 0;
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _width = 200;
+      // _width = 200;
       setState(() {});
     });
     super.initState();
@@ -38,7 +38,7 @@ class _ExpandableCardScreenState extends State<ExpandableCardScreen> {
                         color: Colors.accents[e],
                       ))
                   .toList()),
-          ExpansionTile(title: Text("Hello")),
+          const ExpansionTile(title: Text("Hello")),
         ]),
       ),
     );

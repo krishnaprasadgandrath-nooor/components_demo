@@ -7,20 +7,20 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'image_component.dart';
 
-class CompHolder extends StatefulWidget {
+class YtCompHolder extends StatefulWidget {
   final SimpleComponent component;
   final YoutubePlayerController vController;
-  const CompHolder(
+  const YtCompHolder(
     this.component, {
     required this.vController,
     super.key,
   });
 
   @override
-  State<CompHolder> createState() => _CompHolderState();
+  State<YtCompHolder> createState() => _YtCompHolderState();
 }
 
-class _CompHolderState extends State<CompHolder> {
+class _YtCompHolderState extends State<YtCompHolder> {
   @override
   void initState() {
     super.initState();

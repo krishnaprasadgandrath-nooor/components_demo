@@ -1,5 +1,4 @@
 import 'package:components_demo/binary_tree_problems/tree_models.dart';
-import 'package:stack/stack.dart' as stack;
 
 class BTree extends Tree {
   @override
@@ -23,7 +22,7 @@ class BTree extends Tree {
   List<List> get depthList {
     if (root == null) return [];
     List<List> depthsList = [];
-    stack.Stack<Node?> nodeStack = stack.Stack();
+    // stack.Stack<Node?> nodeStack = stack.Stack();
 
     return depthsList;
   }

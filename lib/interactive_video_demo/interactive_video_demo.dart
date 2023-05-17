@@ -1,4 +1,3 @@
-import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:video_player/video_player.dart';
@@ -41,6 +40,7 @@ class _InteractiveVideoDemoState extends State<InteractiveVideoDemo> {
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back),
               )
+            // ignore: dead_code
             : null,
         title: const Text("Interactive Vide Demo"),
         actions: const [
@@ -56,7 +56,7 @@ class _InteractiveVideoDemoState extends State<InteractiveVideoDemo> {
                 child: Stack(
                   children: [
                     VideoPlayer(baseController!),
-                    SizedBox.expand(),
+                    const SizedBox.expand(),
                   ],
                 ),
               ),

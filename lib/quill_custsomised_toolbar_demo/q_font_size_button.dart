@@ -1,7 +1,6 @@
 // q_font_size_button.dart
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
 //default font size values

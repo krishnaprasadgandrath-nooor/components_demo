@@ -1,7 +1,5 @@
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class IsolateDemoScreen extends StatefulWidget {
   const IsolateDemoScreen({super.key});
@@ -11,7 +9,7 @@ class IsolateDemoScreen extends StatefulWidget {
 }
 
 class _IsolateDemoScreenState extends State<IsolateDemoScreen> {
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +34,7 @@ class _IsolateDemoScreenState extends State<IsolateDemoScreen> {
   }
 
   void getImageAndCompute() {
-    String url = _controller.text;
-    Image image = Image.network(url);
+    // String url = _controller.text;
+    // Image image = Image.network(url);
   }
 }

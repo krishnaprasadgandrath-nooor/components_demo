@@ -15,16 +15,16 @@ class CompEditorView extends StatefulWidget {
 }
 
 class _CompEditorViewState extends State<CompEditorView> with SingleTickerProviderStateMixin {
-  late final TabController _tabController = TabController(length: 4, vsync: this);
+  // late final TabController _tabController = TabController(length: 4, vsync: this);
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(offset: const Offset(-4, 0), color: Colors.grey.withAlpha(100), blurRadius: 2.0, spreadRadius: 2.0),
       ]),
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
-          children: const [
+          children: [
             SizeAndDurationEditor(),
             AnimationEditor(),
             ActionEditor(),

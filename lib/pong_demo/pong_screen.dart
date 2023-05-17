@@ -155,6 +155,7 @@ class PongScene extends GSprite {
 
   @override
   void update(double delta) {
+    // ignore: unused_local_variable
     final t = getTimer() / 1000;
     if (!isGameOver) {
       movePong();

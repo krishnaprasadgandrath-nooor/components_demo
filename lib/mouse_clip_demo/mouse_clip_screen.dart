@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:components_demo/connected_nodes_demo/connected_nodes_scene.dart';
-import 'package:components_demo/filp_card_demo/flip_card_screen.dart';
+
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:graphx/graphx.dart';

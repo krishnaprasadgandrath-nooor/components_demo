@@ -29,7 +29,7 @@ class _SearchableTextFieldState extends State<SearchableTextField> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.max, children: [
-      widget.isSearchView && widget.searchWords != null && widget.searchWords.isNotEmpty
+      widget.isSearchView && widget.searchWords.isNotEmpty
           ? searchViewText()
           : Expanded(
               child: TextField(

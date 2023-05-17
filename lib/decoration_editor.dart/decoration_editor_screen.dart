@@ -1,7 +1,6 @@
 import 'package:components_demo/decoration_editor.dart/decoration_editing_controller.dart';
 import 'package:components_demo/decoration_editor.dart/shadow_editor.dart';
 
-import 'package:components_demo/decoration_editor.dart/shadow_editor_component.dart';
 import 'package:flutter/material.dart';
 
 import 'border_radius_editor.dart';

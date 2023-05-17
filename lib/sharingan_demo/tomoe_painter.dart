@@ -17,8 +17,8 @@ class TomoePainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 
   void drawTomoe(Canvas canvas, double minSide, Offset offset, Paint paint) {
-    double height = minSide;
-    double width = minSide * 2;
+    // double height = minSide;
+    // double width = minSide * 2;
     double radius = minSide / 2;
     Offset center = offset;
     Offset circleOffset = Offset(center.dx - radius, center.dy);
@@ -30,8 +30,8 @@ class TomoePainter extends CustomPainter {
     Path path = Path();
 
     ///First cubic point
-    double curveEffect = radius / 2;
-    Offset middleOffset = Offset(offset4.dx - curveEffect, center.dy - curveEffect);
+    // double curveEffect = radius / 2;
+    // Offset middleOffset = Offset(offset4.dx - curveEffect, center.dy - curveEffect);
     path.moveTo(center.dx, center.dy);
 
     path.quadraticBezierTo(

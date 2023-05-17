@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -113,7 +111,7 @@ class CFlowDelegate extends FlowDelegate {
   @override
   void paintChildren(FlowPaintingContext context) {
     final size = context.size;
-    final totalCount = context.childCount;
+    // final totalCount = context.childCount;
 
     ///First Child
     final firstSize = context.getChildSize(0) ?? Size.zero;
@@ -121,14 +119,14 @@ class CFlowDelegate extends FlowDelegate {
 
     if (controller.value != 0) {
       for (var i = 1; i < 4; i++) {
-        final dx = context.getChildSize(i)?.width ?? 0.0;
+        // final dx = context.getChildSize(i)?.width ?? 0.0;
         context.paintChild(i,
             transform: Matrix4.identity()
               ..translate(firstLoc.dx + hGap * controller.value * xPosMap[(i % 3)]!,
                   firstLoc.dy + (-vGap * controller.value) * yPosMap[i % 3]!));
       }
       for (var i = 4; i < context.childCount; i++) {
-        final dx = context.getChildSize(i)?.width ?? 0.0;
+        // final dx = context.getChildSize(i)?.width ?? 0.0;
         context.paintChild(i,
             transform: Matrix4.identity()
               ..translate(firstLoc.dx + hGap * controller.value * xPosMap[(i % 3)]!,

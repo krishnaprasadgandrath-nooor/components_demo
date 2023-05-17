@@ -39,6 +39,5 @@ class Node {
   Iterable<int> get postOrderElements => [...(left?.elements ?? []), ...(right?.elements ?? []), value];
   Iterable<int> get inOrderElements => [...(left?.elements ?? []), value, ...(right?.elements ?? [])];
 
-  @override
   Iterable<Node> get nodes => [this, ...(left?.nodes ?? []), ...(right?.nodes ?? [])];
 }

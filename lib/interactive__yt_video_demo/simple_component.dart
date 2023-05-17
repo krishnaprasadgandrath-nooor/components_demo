@@ -12,12 +12,12 @@ enum CompType { image, text, button, question, link }
 extension CompTypeUtil on CompType {
   String get lowerName => name.toLowerCase();
   static CompType fromName(String value) {
-    String _lowerCase = value.toLowerCase();
-    if (_lowerCase == CompType.image.lowerName) return CompType.image;
-    if (_lowerCase == CompType.text.lowerName) return CompType.text;
-    if (_lowerCase == CompType.button.lowerName) return CompType.button;
-    if (_lowerCase == CompType.question.lowerName) return CompType.question;
-    if (_lowerCase == CompType.link.lowerName) return CompType.link;
+    String lowerCase = value.toLowerCase();
+    if (lowerCase == CompType.image.lowerName) return CompType.image;
+    if (lowerCase == CompType.text.lowerName) return CompType.text;
+    if (lowerCase == CompType.button.lowerName) return CompType.button;
+    if (lowerCase == CompType.question.lowerName) return CompType.question;
+    if (lowerCase == CompType.link.lowerName) return CompType.link;
     throw Exception("Error while parsing name");
   }
 }
@@ -45,7 +45,7 @@ class SimpleComponent {
     Duration? start_time,
     Duration? end_time,
     CompType? type,
-    dynamic? data,
+    dynamic data,
     Rect? rect,
     bool? pauseOnDisplay,
   }) {

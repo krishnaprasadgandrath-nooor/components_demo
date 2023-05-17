@@ -117,7 +117,7 @@ class _TitleWidgetState extends ConsumerState<TitleWidget> {
       height: 200,
       color: Colors.accents[Random().nextInt(Colors.accents.length)],
       child: Center(
-        child: Container(
+        child: SizedBox(
           height: 30,
           width: 30,
           child: Text(customProTitle),
@@ -143,7 +143,7 @@ class _CountWidgetState extends ConsumerState<CountWidget> {
       height: 200,
       color: Colors.accents[Random().nextInt(Colors.accents.length)],
       child: Center(
-        child: Container(
+        child: SizedBox(
           height: 30,
           width: 30,
           child: Center(
@@ -163,7 +163,7 @@ class ListenerWidget extends ConsumerStatefulWidget {
 }
 
 class _ListenerWidgetState extends ConsumerState<ListenerWidget> {
-  Color _color = Colors.red;
+  // Color _color = Colors.red;
   @override
   void initState() {
     ref.read(customoProvider).addListener(_listerToPro);

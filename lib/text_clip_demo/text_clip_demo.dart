@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';

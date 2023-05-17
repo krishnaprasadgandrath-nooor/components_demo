@@ -1,5 +1,3 @@
-import 'package:components_demo/reflect_demo/reflect_demo.dart';
-import 'package:components_demo/text_clip_demo/text_clip_demo.dart';
 import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
@@ -25,8 +23,9 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      // home: const TextClipDemoScreen(),
       home: const ComponentsHome(),
+      // home: const FunvasScreen(),
+      // home: CompHolder(),
     ));
   }
 }

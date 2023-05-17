@@ -11,6 +11,7 @@ class NumberInput extends StatefulWidget {
   final double maxValue;
 
   const NumberInput({
+    super.key,
     required this.label,
     required this.initialValue,
     required this.onChanged,
@@ -26,7 +27,7 @@ class _NumberInputState<T> extends State<NumberInput> {
   late double _value;
   Timer? _timer;
   final _controller = TextEditingController();
-  TextSelection _selection = TextSelection.collapsed(offset: 0);
+  // TextSelection _selection = TextSelection.collapsed(offset: 0);
 
   @override
   void initState() {
@@ -42,7 +43,7 @@ class _NumberInputState<T> extends State<NumberInput> {
   }
 
   void _startTimer(Function() callback) {
-    _timer = Timer.periodic(Duration(milliseconds: 150), (_) {
+    _timer = Timer.periodic(const Duration(milliseconds: 150), (_) {
       if (_value == widget.maxValue || _value == widget.minValue) _timer?.cancel();
       callback();
     });
@@ -59,7 +60,7 @@ class _NumberInputState<T> extends State<NumberInput> {
       children: [
         Text(
           widget.label,
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         ),
         const SizedBox(height: 3),
         DecoratedBox(
@@ -83,14 +84,13 @@ class _NumberInputState<T> extends State<NumberInput> {
                 ),
               ),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
-                    child: Icon(Icons.add),
                     onTap: _value <= widget.maxValue
                         ? () {
                             _value++;
@@ -110,12 +110,12 @@ class _NumberInputState<T> extends State<NumberInput> {
                     onLongPressEnd: (_) {
                       _stopTimer();
                     },
+                    child: Icon(Icons.add),
                   ),
                 ),
                 MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
-                    child: const Icon(Icons.remove),
                     onTap: _value > widget.minValue
                         ? () {
                             _value--;
@@ -135,6 +135,7 @@ class _NumberInputState<T> extends State<NumberInput> {
                     onLongPressEnd: (_) {
                       _stopTimer();
                     },
+                    child: const Icon(Icons.remove),
                   ),
                 ),
               ],

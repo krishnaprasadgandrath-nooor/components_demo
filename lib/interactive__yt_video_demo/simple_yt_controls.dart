@@ -23,7 +23,7 @@ class _SimpleYTControlsState extends State<SimpleYTControls> {
   PlayerState _playerState = PlayerState.unknown;
   Duration _currTime = Duration.zero;
   Duration _duration = Duration.zero;
-  final _targetDuration = const Duration(seconds: 15);
+  // final _targetDuration = const Duration(seconds: 15);
   GlobalKey ytKey = GlobalKey();
   Set<SimpleComponent> components = {};
   StreamController<Set<String>> visibleComponentsController = StreamController();
@@ -57,7 +57,7 @@ class _SimpleYTControlsState extends State<SimpleYTControls> {
                         return Stack(
                           children: snapshot.data!
                               .map(
-                                (e) => CompHolder(
+                                (e) => YtCompHolder(
                                   components.firstWhere((element) => element.id == e),
                                   vController: baseController!,
                                 ),

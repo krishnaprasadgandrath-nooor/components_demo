@@ -3,8 +3,6 @@ import 'package:components_demo/inherited_state_management_demo/simple_inherit_w
 import 'package:components_demo/inherited_state_management_demo/simple_state.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SimpleInheritStateDemoScreen extends StatefulWidget {
   const SimpleInheritStateDemoScreen({super.key});
@@ -15,7 +13,7 @@ class SimpleInheritStateDemoScreen extends StatefulWidget {
 
 class _SimpleInheritStateDemoScreenState extends State<SimpleInheritStateDemoScreen> {
   int viewIndex = 0;
-  SimpleState _state = SimpleState();
+  final SimpleState _state = SimpleState();
   @override
   void initState() {
     _state.addListener(() {

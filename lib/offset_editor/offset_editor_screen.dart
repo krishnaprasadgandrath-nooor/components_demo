@@ -1,8 +1,7 @@
 import 'package:components_demo/offset_editor/offset_editor_component.dart';
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
 
 class OffsetEditorScreen extends StatefulWidget {
   const OffsetEditorScreen({super.key});

@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:components_demo/utils/default_appbar.dart';
-import 'package:file_picker/file_picker.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
@@ -12,7 +10,7 @@ StateProvider<String> updateProvider = StateProvider(
 );
 StreamProvider<int?> streamProvider = StreamProvider(
   (ref) async* {
-    List<int> bytees = [];
+    // List<int> bytees = [];
     ref.watch(updateProvider);
     // FilePickerResult? result = await FilePicker.platform.pickFiles();
     // if (result != null && result.files.isNotEmpty) {
@@ -51,7 +49,7 @@ class StreamProviderScreen extends StatelessWidget {
                     // ),
                     ElevatedButton(
                         onPressed: () {
-                          ref.read(updateProvider.state).state = Uuid().v1();
+                          ref.read(updateProvider.state).state = const Uuid().v1();
                         },
                         child: child)
                   ],

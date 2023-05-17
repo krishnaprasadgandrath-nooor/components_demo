@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:graphx/graphx.dart';
 
@@ -31,7 +29,7 @@ class _WebDemoScreenState extends State<WebDemoScreen> {
       appBar: DefaultAppBar.appBar(context, "Web Demo"),
       body: ListView.builder(
         itemCount: 1,
-        itemBuilder: (context, index) => WebComponent(),
+        itemBuilder: (context, index) => const WebComponent(),
       ),
     );
   }

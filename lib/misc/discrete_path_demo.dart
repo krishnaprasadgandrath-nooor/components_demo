@@ -85,12 +85,11 @@ class _CustomPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
-    Path path = Path();
+    // Path path = Path();
     /* canvas.transform((Matrix4.identity()
           ..scale(0.75)
           ..translate(width * 0.25, height * 0.25) /* ..rotateZ(pi / 3) */)
         .storage) */
-    ;
 
     // letter E
     /* path.moveTo(size.width, 0);

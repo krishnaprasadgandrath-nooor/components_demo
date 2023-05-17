@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import 'package:components_demo/utils/default_appbar.dart';
 
@@ -61,7 +59,7 @@ class _CustomMultiChildRenderScreenState extends State<CustomMultiChildRenderScr
 }
 
 class ZigZagGrid extends MultiChildRenderObjectWidget {
-  ZigZagGrid({super.key, required super.children});
+  const ZigZagGrid({super.key, required super.children});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
@@ -78,15 +76,19 @@ class ZigZagRenderObject extends RenderBox
   }
 
   ///Fields
-  Size _computedSize = Size.zero;
+  // final Size _computedSize = Size.zero;
   double _maxWidth1 = 0;
   double _maxWidth2 = 0;
 
   @override
-  double? defaultComputeDistanceToFirstActualBaseline(TextBaseline baseline) {}
+  double? defaultComputeDistanceToFirstActualBaseline(TextBaseline baseline) {
+    return null;
+  }
 
   @override
-  double? defaultComputeDistanceToHighestActualBaseline(TextBaseline baseline) {}
+  double? defaultComputeDistanceToHighestActualBaseline(TextBaseline baseline) {
+    return null;
+  }
 
   @override
   bool defaultHitTestChildren(BoxHitTestResult result, {required Offset position}) {

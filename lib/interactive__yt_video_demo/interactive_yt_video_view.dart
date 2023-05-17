@@ -24,7 +24,6 @@ class _InteractiveYTVideoViewState extends State<InteractiveYTVideoView> {
   final _targetDuration = const Duration(seconds: 15);
   GlobalKey ytKey = GlobalKey();
 
-  bool _showPrompts = false;
   @override
   void initState() {
     initAllControllers();
@@ -121,8 +120,9 @@ class _InteractiveYTVideoViewState extends State<InteractiveYTVideoView> {
     final time = Duration(seconds: elapsedTime.toInt());
     if (time != _currTime) {
       _currTime = time;
-      if (_currTime == _targetDuration) _showPrompts = true;
-      setState(() {});
+      if (_currTime == _targetDuration) {
+        setState(() {});
+      }
     }
   }
 }

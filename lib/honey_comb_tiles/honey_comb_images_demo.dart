@@ -113,7 +113,7 @@ class _HoneyCombDelegeate extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
     final double columnWidth = (size.width / maxHCount) - (hSpacing * (maxHCount - 1));
-    final verticalExtent = vExtent ?? columnWidth;
+    // final verticalExtent = vExtent ?? columnWidth;
 
     Offset childPosition = Offset.zero;
     bool oddLine = true;

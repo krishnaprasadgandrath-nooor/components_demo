@@ -3,7 +3,7 @@ import 'package:components_demo/decoration_editor.dart/shadow_editor.dart';
 import 'package:flutter/material.dart';
 
 import 'border_radius_editor.dart';
-import 'decoration_editor_screen.dart';
+
 import 'fill_type_editor.dart';
 
 class DecorationEditor extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CounterStateVariant extends InheritedWidget {
   int count = 0;
   CounterStateVariant({

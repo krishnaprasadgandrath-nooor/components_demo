@@ -14,9 +14,9 @@ class FillTypeEditor extends StatefulWidget {
 }
 
 class _FillTypeEditorState extends State<FillTypeEditor> {
-  List<Color> _gradientColor = [];
-  List<double> _gradientStops = [];
-  DGradType _gradType = DGradType.linear;
+  // final List<Color> _gradientColor = [];
+  // final List<double> _gradientStops = [];
+  // final DGradType _gradType = DGradType.linear;
 
   @override
   void initState() {

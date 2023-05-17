@@ -58,6 +58,7 @@ dependencies:
   number_inc_dec: ^0.8.0
   flutter_colorpicker: ^1.0.3
   graphx: ^1.0.12
+  funvas: ^0.1.7
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,3 @@
-import 'package:components_demo/number_input_demo/number_input.dart';
-
 import 'package:flutter/material.dart';
 import 'package:number_inc_dec/number_inc_dec.dart';
 
@@ -64,7 +62,7 @@ class _SizeAndDurationEditorState extends State<SizeAndDurationEditor> {
         ),
         const SizedBox(height: 8),
         ConstrainedBox(
-          constraints: BoxConstraints.loose(Size(300, 80)),
+          constraints: BoxConstraints.loose(const Size(300, 80)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

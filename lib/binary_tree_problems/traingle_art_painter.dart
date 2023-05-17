@@ -12,39 +12,39 @@ class TriangleArtPainter extends CustomPainter {
     Offset topCenter = Offset(size.width / 2, 0);
     Offset bottomLeft = Offset(0, size.height);
     Offset bottomRight = Offset(size.width, size.height);
-    List<Offset> leftSidePoints = [];
+    // List<Offset> leftSidePoints = [];
 
-    double right_diff_X = topCenter.dx - bottomLeft.dx;
-    double right_diff_Y = bottomLeft.dy - topCenter.dy;
+    double rightDiffX = topCenter.dx - bottomLeft.dx;
+    double rightDiffY = bottomLeft.dy - topCenter.dy;
 
-    double right_interval_X = right_diff_X / (pointNum + 1);
-    double right_interval_Y = right_diff_Y / (pointNum + 1);
+    double rightIntervalX = rightDiffX / (pointNum + 1);
+    double rightIntervalY = rightDiffY / (pointNum + 1);
 
     List<Offset> rightPointsList = [];
     for (int i = 1; i <= pointNum; i++) {
-      rightPointsList.add(Offset(topCenter.dx + right_interval_X * i, topCenter.dy + right_interval_Y * i));
+      rightPointsList.add(Offset(topCenter.dx + rightIntervalX * i, topCenter.dy + rightIntervalY * i));
     }
 
-    double bottom_diff_X = bottomRight.dx - bottomLeft.dx;
-    double bottom_diff_Y = bottomRight.dy - bottomLeft.dy;
+    double bottomDiffX = bottomRight.dx - bottomLeft.dx;
+    double bottomDiffY = bottomRight.dy - bottomLeft.dy;
 
-    double bottom_interval_X = bottom_diff_X / (pointNum + 1);
-    double bottom_interval_Y = bottom_diff_Y / (pointNum + 1);
+    double bottomIntervalX = bottomDiffX / (pointNum + 1);
+    double bottomIntervalY = bottomDiffY / (pointNum + 1);
 
     List<Offset> bottomPointsList = [];
     for (int i = 1; i <= pointNum; i++) {
-      bottomPointsList.add(Offset(bottomRight.dx - bottom_interval_X * i, bottomRight.dy + bottom_interval_Y * i));
+      bottomPointsList.add(Offset(bottomRight.dx - bottomIntervalX * i, bottomRight.dy + bottomIntervalY * i));
     }
 
-    double left_diff_X = topCenter.dx - bottomLeft.dx;
-    double left_diff_Y = bottomLeft.dy - topCenter.dy;
+    double leftDiffX = topCenter.dx - bottomLeft.dx;
+    double leftDiffY = bottomLeft.dy - topCenter.dy;
 
-    double left_interval_X = left_diff_X / (pointNum + 1);
-    double left_interval_Y = left_diff_Y / (pointNum + 1);
+    double leftIntervalX = leftDiffX / (pointNum + 1);
+    double leftIntervalY = leftDiffY / (pointNum + 1);
 
     List<Offset> leftPointsList = [];
     for (int i = 1; i <= pointNum; i++) {
-      leftPointsList.add(Offset(bottomLeft.dx + left_interval_X * i, bottomLeft.dy - left_interval_Y * i));
+      leftPointsList.add(Offset(bottomLeft.dx + leftIntervalX * i, bottomLeft.dy - leftIntervalY * i));
     }
 
     Paint paint = Paint()

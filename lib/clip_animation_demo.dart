@@ -1,6 +1,5 @@
 import 'package:components_demo/utils/default_appbar.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class ClipAnimDemo extends StatefulWidget {
   const ClipAnimDemo({super.key});
@@ -96,8 +95,8 @@ class CustomPathClip extends CustomClipper<Path> {
   getClip(Size size) {
     final height = size.height;
     final width = size.width;
-    final radius = math.min(height, width);
-    final Offset center = Offset(width / 2, height / 2);
+    // final radius = math.min(height, width);
+    // final Offset center = Offset(width / 2, height / 2);
     Path path = Path();
     //Revealing oval
     // path.moveTo(center.dx, center.dy);
