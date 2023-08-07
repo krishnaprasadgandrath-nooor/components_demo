@@ -1,5 +1,6 @@
 // demo_home.dart
 
+import 'package:components_demo/rect_illustion/rect_iluusion_home.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_nav_bar/animated_nav_screen.dart';
@@ -70,6 +71,7 @@ class _ComponentsHomeState extends State<ComponentsHome> {
   int selectedPage = 2;
   Map<String, dynamic> demoMap = {
     // "Simple List Anim Demo": SimpleListAnimDemo(),
+    RectIllusionHome.name: const RectIllusionHome(),
     'Animated Nav bar Demo': const AnimatedNavScreen(),
     'My Render Object Demo': const MyRenderObjectScreen(),
     'Snake Game Demo': const SnakeGameDemo(),

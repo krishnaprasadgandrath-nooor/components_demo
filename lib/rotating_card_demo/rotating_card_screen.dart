@@ -11,10 +11,10 @@ class RotatingCardScreen extends StatefulWidget {
 class _RotatingCardScreenState extends State<RotatingCardScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             child: RotatingCard(),

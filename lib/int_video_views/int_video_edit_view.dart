@@ -22,9 +22,9 @@ class _CompEditorViewState extends State<CompEditorView> with SingleTickerProvid
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(offset: const Offset(-4, 0), color: Colors.grey.withAlpha(100), blurRadius: 2.0, spreadRadius: 2.0),
       ]),
-      child: const SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Column(
-          children: [
+          children: const [
             SizeAndDurationEditor(),
             AnimationEditor(),
             ActionEditor(),

@@ -31,7 +31,7 @@ class ZigZagLayoutScreen extends StatelessWidget {
 }
 
 class ZigZagLayout extends MultiChildRenderObjectWidget {
-  const ZigZagLayout({
+  ZigZagLayout({
     Key? key,
     required List<Widget> children,
   }) : super(key: key, children: children);

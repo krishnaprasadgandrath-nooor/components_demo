@@ -59,7 +59,7 @@ class _CustomMultiChildRenderScreenState extends State<CustomMultiChildRenderScr
 }
 
 class ZigZagGrid extends MultiChildRenderObjectWidget {
-  const ZigZagGrid({super.key, required super.children});
+  ZigZagGrid({super.key, required super.children});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
